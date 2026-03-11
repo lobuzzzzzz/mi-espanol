@@ -32,7 +32,9 @@
   <!-- CZASY SUBMENU -->
   <div class="subnav2" id="czasy-subnav">
     <button class="subnav2-tab active" onclick="showCzasSection('presente', this)">🌀 Presente</button>
+    <button class="subnav2-tab" onclick="showCzasSection('gerundio', this)">🔄 Gerundio</button>
     <button class="subnav2-tab" onclick="showCzasSection('preterito', this)">📜 Pretérito</button>
+    <button class="subnav2-tab" onclick="showCzasSection('imperfecto', this)">🌅 Imperfecto</button>
     <button class="subnav2-tab" onclick="showCzasSection('condicional', this)">🔮 Condicional</button>
     <button class="subnav2-tab" onclick="showCzasSection('perfecto', this)">✅ Perfecto</button>
     <button class="subnav2-tab" onclick="showCzasSection('futuro', this)">🚀 Futuro</button>
@@ -92,6 +94,36 @@
       <div class="quiz-grid" id="presente-quizzes"></div>
     </div>
 
+    <!-- GERUNDIO -->
+    <div class="czas-section" id="czas-gerundio">
+      <div class="welcome">
+        <h2>🔄 <em>Gerundio</em></h2>
+        <p>Estar + -ando/-iendo — co robisz teraz? Co robiłeś w tamtej chwili?</p>
+      </div>
+      <div class="theory-box">
+        <div class="theory-toggle" onclick="toggleTheory('gerundio-theory')">📖 Teoria — Gerundio <span id="gerundio-theory-arrow">▼</span></div>
+        <div class="theory-body" id="gerundio-theory">
+          <h3>Tworzenie gerundio</h3>
+          <div class="t-rule"><strong class="gold">-AR → -ando:</strong> hablar → hablando, bailar → bailando, estudiar → estudiando</div>
+          <div class="t-rule"><strong class="gold">-ER/-IR → -iendo:</strong> comer → comiendo, vivir → viviendo, escribir → escribiendo</div>
+          <h3 style="margin-top:16px;">Nieregularne gerundio</h3>
+          <div class="t-rule"><strong class="gold">e→i (tylko -IR):</strong> pedir → pidiendo, servir → sirviendo, decir → diciendo, vestir → vistiendo, seguir → siguiendo</div>
+          <div class="t-rule"><strong class="gold">o→u:</strong> dormir → durmiendo, morir → muriendo, poder → pudiendo</div>
+          <div class="t-rule"><strong class="gold">i→y (między samogłoskami):</strong> leer → leyendo, oír → oyendo, traer → trayendo, ir → yendo</div>
+          <h3 style="margin-top:16px;">Perífrasis z gerundio</h3>
+          <table>
+            <tr><th>Konstrukcja</th><th>Znaczenie</th><th>Przykład</th></tr>
+            <tr><td class="gold">estar + gerundio</td><td>akcja w trakcie</td><td>Estoy comiendo.</td></tr>
+            <tr><td class="gold">seguir + gerundio</td><td>nadal robić</td><td>Sigue lloviendo.</td></tr>
+            <tr><td class="gold">llevar + czas + gerundio</td><td>od X czasu</td><td>Llevo 2 horas esperando.</td></tr>
+            <tr><td class="gold">ir + gerundio</td><td>stopniowy postęp</td><td>Va mejorando.</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="section-title">Quizy — Gerundio</div>
+      <div class="quiz-grid" id="gerundio-quizzes"></div>
+    </div>
+
     <!-- PRETERITO -->
     <div class="czas-section" id="czas-preterito">
       <div class="welcome">
@@ -120,6 +152,41 @@
       </div>
       <div class="section-title">Quizy — Pretérito</div>
       <div class="quiz-grid" id="preterito-quizzes"></div>
+    </div>
+
+    <!-- IMPERFECTO -->
+    <div class="czas-section" id="czas-imperfecto">
+      <div class="welcome">
+        <h2>🌅 <em>Imperfecto</em></h2>
+        <p>Opisy, nawyki, tło — jak wyglądało życie kiedyś? Tylko 3 wyjątki!</p>
+      </div>
+      <div class="theory-box">
+        <div class="theory-toggle" onclick="toggleTheory('imperfecto-theory')">📖 Teoria — Pretérito Imperfecto <span id="imperfecto-theory-arrow">▼</span></div>
+        <div class="theory-body" id="imperfecto-theory">
+          <h3>Odmiana regularna</h3>
+          <table>
+            <tr><th></th><th>-AR (hablar)</th><th>-ER (comer)</th><th>-IR (vivir)</th></tr>
+            <tr><td>yo</td><td class="gold">hablaba</td><td class="gold">comía</td><td class="gold">vivía</td></tr>
+            <tr><td>tú</td><td class="gold">hablabas</td><td class="gold">comías</td><td class="gold">vivías</td></tr>
+            <tr><td>él</td><td class="gold">hablaba</td><td class="gold">comía</td><td class="gold">vivía</td></tr>
+            <tr><td>nosotros</td><td class="gold">hablábamos</td><td class="gold">comíamos</td><td class="gold">vivíamos</td></tr>
+            <tr><td>vosotros</td><td class="gold">hablabais</td><td class="gold">comíais</td><td class="gold">vivíais</td></tr>
+            <tr><td>ellos</td><td class="gold">hablaban</td><td class="gold">comían</td><td class="gold">vivían</td></tr>
+          </table>
+          <div class="t-rule">💡 -ER i -IR mają <strong class="gold">identyczne</strong> końcówki! Tylko -AR jest inny (-aba vs -ía).</div>
+          <h3 style="margin-top:16px;">Tylko 3 wyjątki!</h3>
+          <div class="t-rule"><strong class="gold">ser:</strong> era, eras, era, éramos, erais, eran</div>
+          <div class="t-rule"><strong class="gold">ir:</strong> iba, ibas, iba, íbamos, ibais, iban</div>
+          <div class="t-rule"><strong class="gold">ver:</strong> veía, veías, veía, veíamos, veíais, veían</div>
+          <h3 style="margin-top:16px;">Kiedy używać?</h3>
+          <div class="t-rule">🌅 <strong>Opisy:</strong> La casa era grande. Hacía frío.</div>
+          <div class="t-rule">🔁 <strong>Nawyki:</strong> De niño jugaba al fútbol todos los días.</div>
+          <div class="t-rule">🎬 <strong>Tło:</strong> Llovía cuando llegué. (imperfecto + indefinido)</div>
+          <div class="t-rule">🕐 <strong>Godzina/wiek:</strong> Eran las tres. Tenía 10 años.</div>
+        </div>
+      </div>
+      <div class="section-title">Quizy — Imperfecto</div>
+      <div class="quiz-grid" id="imperfecto-quizzes"></div>
     </div>
 
     <!-- CONDICIONAL -->
@@ -297,7 +364,7 @@
   <div class="subpage" id="grammar-inne">
     <div class="welcome">
       <h2>📌 <em>Inne</em></h2>
-      <p>Imperativo, Por vs Para, wyrażenia codzienne — przydatne struktury B1.</p>
+      <p>Imperativo, Por vs Para, Ser vs Estar, Comparativos, Perífrasis, Preposiciones i więcej — przydatne struktury B1.</p>
     </div>
     <div class="theory-box">
       <div class="theory-toggle" onclick="toggleTheory('inne-theory')">📖 Teoria — szybkie przypomnienie <span id="inne-theory-arrow">▼</span></div>
@@ -379,6 +446,58 @@
             <tr><td class="gold">Futuro</td><td>será/serán + part.</td><td>El proyecto será terminado en mayo.</td></tr>
           </table>
           <div class="t-rule">⚡ <strong>Voz Pasiva vs Se Pasiva:</strong> El vino <strong class="gold">es producido</strong> en Rioja. = <strong class="gold">Se produce</strong> vino en Rioja. (codzienne użycie)</div>
+        </div>
+      </div>
+    <div class="theory-box" style="border-left-color: #f59e0b; margin-top: 0; margin-bottom: 24px;">
+        <div class="theory-toggle" onclick="toggleTheory('comparativos-theory')">📖 Teoria — Comparativos y Superlativos <span id="comparativos-theory-arrow">▼</span></div>
+        <div class="theory-body" id="comparativos-theory">
+          <h3>Porównania</h3>
+          <table>
+            <tr><th>Typ</th><th>Wzór</th><th>Przykład</th></tr>
+            <tr><td class="gold">Wyższy</td><td>más + adj + que</td><td>Es más alto que yo.</td></tr>
+            <tr><td class="gold">Niższy</td><td>menos + adj + que</td><td>Es menos caro que el otro.</td></tr>
+            <tr><td class="gold">Równość</td><td>tan + adj + como</td><td>Es tan grande como el mío.</td></tr>
+            <tr><td class="gold">Równość (rzecz.)</td><td>tanto/a/os/as + N + como</td><td>Tiene tantos libros como yo.</td></tr>
+          </table>
+          <div class="t-rule"><strong class="gold">Nieregularne:</strong> bueno → mejor | malo → peor | grande → mayor (wiek) | pequeño → menor (wiek)</div>
+          <div class="t-rule"><strong class="gold">Superlativo:</strong> el/la + más + adj + <strong class="gold">de</strong> — Es la más alta <strong class="gold">de</strong> la clase.</div>
+          <div class="t-rule"><strong class="gold">Superlativo absoluto:</strong> -ísimo/a — rico → riquísimo, largo → larguísimo</div>
+          <div class="t-rule">⚠️ Przed liczbą: más <strong class="gold">de</strong> 20 (nie "más que 20"). ¡Nunca "más mejor"!</div>
+        </div>
+      </div>
+    <div class="theory-box" style="border-left-color: #a855f7; margin-top: 0; margin-bottom: 24px;">
+        <div class="theory-toggle" onclick="toggleTheory('perifrasis-theory')">📖 Teoria — Perífrasis Verbales <span id="perifrasis-theory-arrow">▼</span></div>
+        <div class="theory-body" id="perifrasis-theory">
+          <h3>Obowiązek i konieczność</h3>
+          <div class="t-rule"><strong class="gold">tener que</strong> + inf = musieć (osobiste) — Tengo que estudiar.</div>
+          <div class="t-rule"><strong class="gold">hay que</strong> + inf = trzeba (bezosobowe) — Hay que practicar.</div>
+          <div class="t-rule"><strong class="gold">deber</strong> + inf = powinno się — Debes descansar.</div>
+          <h3 style="margin-top:16px;">Fazy akcji</h3>
+          <table>
+            <tr><th>Perífrasis</th><th>Znaczenie</th><th>Przykład</th></tr>
+            <tr><td class="gold">ir a + inf</td><td>zamierzać</td><td>Voy a estudiar.</td></tr>
+            <tr><td class="gold">estar a punto de + inf</td><td>zaraz coś zrobić</td><td>Está a punto de llover.</td></tr>
+            <tr><td class="gold">ponerse a + inf</td><td>zacząć nagle</td><td>Se puso a llorar.</td></tr>
+            <tr><td class="gold">acabar de + inf</td><td>właśnie zrobić</td><td>Acabo de llegar.</td></tr>
+            <tr><td class="gold">dejar de + inf</td><td>przestać</td><td>Dejó de fumar.</td></tr>
+            <tr><td class="gold">volver a + inf</td><td>znowu zrobić</td><td>Volvió a llamar.</td></tr>
+            <tr><td class="gold">soler + inf</td><td>zwykle robić</td><td>Suelo correr por las mañanas.</td></tr>
+          </table>
+        </div>
+      </div>
+    <div class="theory-box" style="border-left-color: #22c55e; margin-top: 0; margin-bottom: 24px;">
+        <div class="theory-toggle" onclick="toggleTheory('preposiciones-theory')">📖 Teoria — Preposiciones con Verbos <span id="preposiciones-theory-arrow">▼</span></div>
+        <div class="theory-body" id="preposiciones-theory">
+          <h3>Najważniejsze połączenia czasownik + przyimek</h3>
+          <table>
+            <tr><th>Przyimek</th><th>Czasowniki</th></tr>
+            <tr><td class="gold">EN</td><td>pensar en, fijarse en, insistir en, consistir en, confiar en, tardar en</td></tr>
+            <tr><td class="gold">DE</td><td>acordarse de, olvidarse de, enamorarse de, depender de, quejarse de, despedirse de</td></tr>
+            <tr><td class="gold">A</td><td>dedicarse a, atreverse a, invitar a, acostumbrarse a, negarse a, aprender a</td></tr>
+            <tr><td class="gold">CON</td><td>soñar con, contar con, quedarse con, casarse con</td></tr>
+            <tr><td class="gold">POR</td><td>preocuparse por, interesarse por, disculparse por</td></tr>
+          </table>
+          <div class="t-rule">⚠️ <strong>Pułapka:</strong> pensar <strong class="gold">en</strong> = myśleć o | pensar <strong class="gold">de</strong> = mieć opinię o | pensar <strong class="gold">∅</strong> = zamierzać</div>
         </div>
       </div>
     <div class="quiz-grid" id="inne-quizzes"></div>
@@ -563,7 +682,7 @@
 <div class="page" id="page-wyrazenia">
   <div class="welcome">
     <h2>💬 <em>Wyrażenia</em></h2>
-    <p>Tener, hacer, dar — frazeologia która robi różnicę w codziennej rozmowie.</p>
+    <p>Tener, hacer, dar, quedar, llevar — frazeologia która robi różnicę w codziennej rozmowie.</p>
   </div>
 
   <!-- THEORY: TENER -->
@@ -622,6 +741,39 @@
         <tr><td class="gold">dar la vuelta</td><td>odwrócić / okrążyć</td><td>Da la vuelta a la hoja.</td></tr>
         <tr><td class="gold">dar las gracias</td><td>dziękować</td><td>Le di las gracias.</td></tr>
         <tr><td class="gold">dar un paseo</td><td>iść na spacer</td><td>Vamos a dar un paseo.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- THEORY: QUEDAR/QUEDARSE -->
+  <div class="theory-box" style="border-left-color: #38bdf8;">
+    <div class="theory-toggle" onclick="toggleTheory('quedar-theory')">📖 Wyrażenia z QUEDAR / QUEDARSE <span id="quedar-theory-arrow">▼</span></div>
+    <div class="theory-body" id="quedar-theory">
+      <h3>Quedar vs Quedarse — dwa różne znaczenia!</h3>
+      <table>
+        <tr><th>Wyrażenie</th><th>Znaczenie</th><th>Przykład</th></tr>
+        <tr><td class="gold">quedar (con alguien)</td><td>umówić się</td><td>¿Quedamos a las 5?</td></tr>
+        <tr><td class="gold">quedar en</td><td>ustalić/postanowić</td><td>¿En qué quedamos?</td></tr>
+        <tr><td class="gold">quedar (coś)</td><td>pozostać/zostać</td><td>Solo quedan dos días.</td></tr>
+        <tr><td class="gold">quedar bien/mal</td><td>pasować/wyglądać</td><td>Ese vestido te queda bien.</td></tr>
+        <tr><td class="gold">quedarse</td><td>zostawać (na miejscu)</td><td>Me quedo en casa.</td></tr>
+        <tr><td class="gold">quedarse con</td><td>wybrać/wziąć</td><td>Me quedo con el azul.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- THEORY: LLEVAR -->
+  <div class="theory-box" style="border-left-color: #a855f7;">
+    <div class="theory-toggle" onclick="toggleTheory('llevar-theory')">📖 Wyrażenia z LLEVAR <span id="llevar-theory-arrow">▼</span></div>
+    <div class="theory-body" id="llevar-theory">
+      <h3>Llevar — nie tylko "nosić"!</h3>
+      <table>
+        <tr><th>Wyrażenie</th><th>Znaczenie</th><th>Przykład</th></tr>
+        <tr><td class="gold">llevar puesto</td><td>mieć na sobie</td><td>Lleva puesto un vestido rojo.</td></tr>
+        <tr><td class="gold">llevar razón</td><td>mieć rację</td><td>Llevas razón.</td></tr>
+        <tr><td class="gold">llevar + czas + ger.</td><td>od X czasu</td><td>Llevo 3 años viviendo aquí.</td></tr>
+        <tr><td class="gold">llevarse bien/mal</td><td>dogadywać się</td><td>Me llevo bien con ella.</td></tr>
+        <tr><td class="gold">llevar a cabo</td><td>przeprowadzić</td><td>Llevaron a cabo el proyecto.</td></tr>
       </table>
     </div>
   </div>
