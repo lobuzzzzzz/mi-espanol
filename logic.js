@@ -273,6 +273,12 @@ function showGrammarSection(section, btn) {
   // Show/hide inne subnav
   const inneNav = document.getElementById('inne-subnav');
   if (inneNav) inneNav.classList.toggle('visible', section === 'inne');
+  // Auto-load first inne sub-section
+  if (section === 'inne') {
+    const firstBtn = document.querySelector('#inne-subnav .subnav2-tab');
+    if (firstBtn) showInneSection('imperativo', firstBtn);
+    return;
+  }
   // Force-render quizzes for this section
   const allQuizzes = [...grammarQuizzes, ...vocabQuizzes];
   const ids = quizSections[section] || [];
