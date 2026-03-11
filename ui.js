@@ -1,5 +1,3 @@
-// ===================== UI / RENDER =====================
-
 // ── GRAMMAR QUIZ ──
 function renderGrammarQuiz() {
   const q = activeQuiz;

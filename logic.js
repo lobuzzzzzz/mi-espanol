@@ -1,7 +1,8 @@
 // ===================== STATE =====================
-// ===================== STATE =====================
 
 let progress = JSON.parse(localStorage.getItem('mies_progress') || '{}');
+let vocabFilter = 'all';
+let vocabSearch = '';
 // progress[quizId] = { attempts: N, bestScore: X, lastScore: X, lastDate: '...' }
 
 function saveProgress() {
@@ -150,7 +151,6 @@ function shuffle(arr) {
   return a;
 }
 
-
 // ===================== TUTOR =====================
 
 let tutorMode = 'translate';
@@ -249,6 +249,7 @@ function showPage(id) {
   if (id === 'stats') renderStats();
   if (id === 'vocab') renderVocab();
   if (id === 'dashboard') renderDashboard();
+  if (id === 'wyrazenia') { fiszkiState = loadFiszkiState(); renderFiszki(); }
 }
 
 function showGrammarSection(section, btn) {
@@ -545,12 +546,10 @@ function importFiszki(event) {
   event.target.value = '';
 }
 
+
+
 // ===================== INIT =====================
 
 renderSectionQuizzes();
 renderDashboard();
 renderVocab();
-
-
-// Alias for backward compatibility
-const startQuiz = openQuiz;
