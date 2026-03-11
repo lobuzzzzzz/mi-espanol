@@ -455,6 +455,24 @@ const grammarQuizzes = [
     ]
   },
   {
+    id: 'wyrazenia-quedar-llevar',
+    title: 'Quedar / Quedarse / Llevar',
+    desc: 'Quedamos a las 5, me quedo en casa, llevo razón...',
+    icon: '🤝', theme: 'blue', badge: 'Wyrażenia',
+    questions: [
+      { tag:'Quedar = umówić się', ctx:'📱 Telefon:', q:'¿___ mañana a las cinco en la cafetería?', trans:'Umówimy się jutro o piątej w kawiarni?', opts:['Quedamos','Nos quedamos','Llevamos'], cor:0, exp:'✅ "Quedamos" — quedar (bez "se") = umówić się. ¿Quedamos? = spotkamy się?' },
+      { tag:'Quedarse = zostać', ctx:'🏠 Wieczór:', q:'Estoy cansado, me ___ en casa.', trans:'Jestem zmęczony, zostaję w domu.', opts:['quedo','quede','dejo'], cor:0, exp:'✅ "me quedo" — quedarse = zostawać. Me quedo en casa = zostaję w domu.' },
+      { tag:'Quedar = pozostać', ctx:'🍺 Butelki:', q:'Solo ___ una cerveza en la nevera.', trans:'Została tylko jedna piwo w lodówce.', opts:['queda','se queda','lleva'], cor:0, exp:'✅ "queda" — quedar = zostać/pozostać (ile zostało). Quedan dos días = zostały 2 dni.' },
+      { tag:'Quedar bien/mal', ctx:'👗 Ubranie:', q:'Ese vestido te ___ muy bien.', trans:'Ta sukienka bardzo ci pasuje.', opts:['queda','lleva','va'], cor:0, exp:'✅ "queda" — quedar bien/mal = pasować (o ubraniu, wyglądzie).' },
+      { tag:'Llevar razón', ctx:'💬 Dyskusja:', q:'Pensándolo mejor, creo que ___ razón.', trans:'Dobrze się zastanowiwszy, myślę że masz rację.', opts:['tienes','llevas','das'], cor:1, exp:'✅ "llevas razón" — llevar razón = mieć rację (częste w Hiszpanii, synonim tener razón).' },
+      { tag:'Llevar puesto', ctx:'👔 Opis:', q:'¿Qué ___ puesto tu hermano?', trans:'W co jest ubrany twój brat?', opts:['lleva','tiene','está'], cor:0, exp:'✅ "lleva puesto" — llevar puesto = mieć na sobie (ubranie). ¿Qué llevas puesto?' },
+      { tag:'Llevar tiempo', ctx:'⏰ Czas:', q:'___ tres años viviendo en Madrid.', trans:'Mieszkam w Madrycie od trzech lat.', opts:['Llevo','Tengo','Hago'], cor:0, exp:'✅ "Llevo" — llevar + czas + gerundio = robić coś od X czasu.' },
+      { tag:'Quedarse con', ctx:'🛍️ Zakupy:', q:'Me gustan los dos, pero me ___ con el azul.', trans:'Podobają mi się oba, ale biorę niebieski.', opts:['quedo','llevo','dejo'], cor:0, exp:'✅ "me quedo con" — quedarse con = wybrać/wziąć. Me quedo con este = biorę ten.' },
+      { tag:'Quedar en', ctx:'📍 Plan:', q:'¿En qué ___ al final? ¿Vamos al cine o no?', trans:'Na czym stanęliśmy? Idziemy do kina czy nie?', opts:['quedamos','nos quedamos','dejamos'], cor:0, exp:'✅ "quedamos" — quedar en = ustalić/postanowić. ¿En qué quedamos? = na czym stanęliśmy?' },
+      { tag:'Llevar bien/mal', ctx:'👫 Relacje:', q:'¿Cómo te ___ con tu jefe?', trans:'Jak się dogadujesz ze swoim szefem?', opts:['llevas','quedas','vas'], cor:0, exp:'✅ "llevas" — llevarse bien/mal con = dogadywać się/nie dogadywać z kimś.' },
+    ]
+  },
+  {
     id: 'subjuntivo-2',
     title: 'Subjuntivo — kiedy używać?',
     desc: 'Indicativo vs Subjuntivo — creer que, querer que, emocje',
@@ -752,6 +770,241 @@ const grammarQuizzes = [
       { q:'___ el mal tiempo, decidimos salir de todas formas.', trans:'Pomimo złej pogody, zdecydowaliśmy się wyjść mimo wszystko.', opts:['Debido a','A pesar de','Ya que'], cor:1, exp:'✅ "A pesar de" = pomimo (+ rzeczownik). "A pesar de que" + zdanie.' },
       { q:'___ llueva o haga sol, el partido se jugará en el estadio.', trans:'Niezależnie czy będzie padać czy świecić słońce, mecz zostanie rozegrany na stadionie.', opts:['Aunque','Sin embargo','Puesto que'], cor:0, exp:'✅ "Aunque" + subjuntivo = nawet jeśli/niezależnie czy (hipoteza — nie wiemy jaka będzie pogoda).' },
     ]
+  },
+  // =============== GERUNDIO ===============
+  {
+    id: 'gerundio',
+    title: 'Gerundio — Estar + -ando/-iendo',
+    desc: 'Co robisz teraz? Estoy comiendo, está lloviendo...',
+    icon: '🔄', theme: 'blue', badge: 'Gramatyka',
+    questions: [
+      { tag:'Presente continuo', ctx:'📞 Telefon:', q:'No puedo hablar ahora, ___ (comer, yo).', trans:'Nie mogę teraz mówić, jem.', opts:['como','estoy comiendo','he comido'], cor:1, exp:'✅ "estoy comiendo" — akcja w trakcie teraz → estar + gerundio.' },
+      { tag:'Gerundio -ER/-IR', ctx:'📚 Biblioteka:', q:'Silencio, los estudiantes ___ (leer).', trans:'Cicho, studenci czytają.', opts:['leen','están leyendo','han leído'], cor:1, exp:'✅ "están leyendo" — leer → leyendo (i→y między samogłoskami). Akcja w trakcie.' },
+      { tag:'Nieregularne: dormir', ctx:'😴 Pokój:', q:'No hagas ruido, el bebé ___ (dormir).', trans:'Nie hałasuj, dziecko śpi.', opts:['duerme','está durmiendo','ha dormido'], cor:1, exp:'✅ "está durmiendo" — dormir → durmiendo (o→u). Akcja trwa teraz.' },
+      { tag:'Nieregularne: pedir', ctx:'🍽️ Restauracja:', q:'Espera, María ___ (pedir) la cuenta.', trans:'Czekaj, María prosi o rachunek.', opts:['pide','está pidiendo','ha pedido'], cor:1, exp:'✅ "está pidiendo" — pedir → pidiendo (e→i). Akcja w toku.' },
+      { tag:'Imperfecto continuo', ctx:'🌧️ Wspomnienie:', q:'Cuando llegué, ___ (llover) mucho.', trans:'Kiedy dotarłem, bardzo padało.', opts:['llovía','estaba lloviendo','ha llovido'], cor:1, exp:'✅ "estaba lloviendo" — tło w przeszłości → estaba + gerundio. Lloviendo jest regularne.' },
+      { tag:'Seguir + gerundio', ctx:'💼 Praca:', q:'¿Todavía ___ (trabajar, tú) en esa empresa?', trans:'Nadal pracujesz w tej firmie?', opts:['trabajas','sigues trabajando','has trabajado'], cor:1, exp:'✅ "sigues trabajando" — seguir + gerundio = nadal coś robić. Muy útil!' },
+      { tag:'Llevar + gerundio', ctx:'⏰ Czekanie:', q:'___ (esperar, nosotros) una hora ya.', trans:'Czekamy już godzinę.', opts:['Esperamos','Llevamos esperando','Hemos esperado'], cor:1, exp:'✅ "Llevamos esperando" — llevar + gerundio = robić coś od jakiegoś czasu. Muy español!' },
+      { tag:'Ir + gerundio', ctx:'📈 Postęp:', q:'Mi español ___ (mejorar) poco a poco.', trans:'Mój hiszpański poprawia się po trochu.', opts:['mejora','va mejorando','ha mejorado'], cor:1, exp:'✅ "va mejorando" — ir + gerundio = stopniowy postęp. Poco a poco = krok po kroku.' },
+    ]
+  },
+  {
+    id: 'gerundio-2',
+    title: 'Gerundio — Trudniejszy',
+    desc: 'Wpisuj formy — gerundio nieregularne, perífrasis z gerundio',
+    icon: '🔄', theme: 'red', badge: 'Gramatyka',
+    type: 'typing',
+    questions: [
+      { tag:'Regularne -AR', ctx:'🎵 Impreza:', q:'Los niños están ___ (bailar) en el salón.', trans:'Dzieci tańczą w salonie.', answer:'bailando', exp:'✅ "bailando" — -AR → -ando. Regularne!' },
+      { tag:'Regularne -ER', ctx:'📖 Wieczór:', q:'Mi madre está ___ (beber) un té.', trans:'Moja mama pije herbatę.', answer:'bebiendo', exp:'✅ "bebiendo" — -ER → -iendo. Regularne!' },
+      { tag:'i→y: leer', ctx:'📰 Rano:', q:'Papá está ___ (leer) el periódico.', trans:'Tata czyta gazetę.', answer:'leyendo', exp:'✅ "leyendo" — leer → leyendo. -i- między samogłoskami → -y-!' },
+      { tag:'i→y: oír', ctx:'🎧 Muzyka:', q:'Están ___ (oír) música muy alta.', trans:'Słuchają bardzo głośnej muzyki.', answer:'oyendo', exp:'✅ "oyendo" — oír → oyendo. Ta sama zasada: i→y między samogłoskami.' },
+      { tag:'e→i: decir', ctx:'💬 Rozmowa:', q:'¿Qué estás ___ (decir)?', trans:'Co mówisz?', answer:'diciendo', exp:'✅ "diciendo" — decir → diciendo (e→i). Jak pedir→pidiendo.' },
+      { tag:'e→i: vestirse', ctx:'👗 Rano:', q:'Espera, me estoy ___ (vestir).', trans:'Czekaj, ubieram się.', answer:'vistiendo', exp:'✅ "vistiendo" — vestir → vistiendo (e→i). Grupa -IR ze zmianą!' },
+      { tag:'o→u: morir', ctx:'🌡️ Lato:', q:'Hace mucho calor, ¡me estoy ___ (morir)!', trans:'Jest bardzo gorąco, umieram!', answer:'muriendo', exp:'✅ "muriendo" — morir → muriendo (o→u). Jak dormir→durmiendo.' },
+      { tag:'Poder + gerundio?', ctx:'🤔 Zasada:', q:'Llevan tres horas ___ (jugar) al fútbol.', trans:'Grają w piłkę od trzech godzin.', answer:'jugando', exp:'✅ "jugando" — jugar → jugando. Regularne gerundio! Zmiana u→ue jest TYLKO w presente.' },
+    ]
+  },
+  // =============== IMPERFECTO ===============
+  {
+    id: 'imperfecto',
+    title: 'Imperfecto — Odmiana',
+    desc: 'Odmiana regularna + 3 wyjątki: ser, ir, ver',
+    icon: '🌅', theme: 'gold', badge: 'Gramatyka',
+    type: 'typing',
+    questions: [
+      { tag:'Regularne -AR: yo', ctx:'🏫 Dzieciństwo:', q:'De pequeño ___ (hablar, yo) mucho en clase.', trans:'Jako mały dużo mówiłem na lekcji.', answer:'hablaba', exp:'✅ "hablaba" — -AR imperfecto: -aba, -abas, -aba, -ábamos, -abais, -aban.' },
+      { tag:'Regularne -AR: ellos', ctx:'🏖️ Wakacje:', q:'Mis abuelos ___ (viajar) todos los veranos.', trans:'Moi dziadkowie podróżowali co lato.', answer:'viajaban', exp:'✅ "viajaban" — ellos: viajar → viajaban. Nawyk w przeszłości.' },
+      { tag:'Regularne -ER: tú', ctx:'🍽️ Dawniej:', q:'¿___ (comer, tú) muchas verduras de niño?', trans:'Jadłeś dużo warzyw jako dziecko?', answer:'comías', exp:'✅ "comías" — -ER imperfecto: -ía, -ías, -ía, -íamos, -íais, -ían. Identyczne dla -IR!' },
+      { tag:'Regularne -IR: nosotros', ctx:'🏠 Wspomnienia:', q:'___ (vivir, nosotros) en un pueblo pequeño.', trans:'Mieszkaliśmy w małej wiosce.', answer:'vivíamos', exp:'✅ "vivíamos" — nosotros: vivir → vivíamos. Akcent na -í-!' },
+      { tag:'Nieregularne: ser yo', ctx:'👦 Dzieciństwo:', q:'Yo ___ (ser) muy tímido de niño.', trans:'Byłem bardzo nieśmiały jako dziecko.', answer:'era', exp:'✅ "era" — ser: era, eras, era, éramos, erais, eran. 1 z 3 wyjątków!' },
+      { tag:'Nieregularne: ser ellos', ctx:'🏘️ Sąsiedzi:', q:'Nuestros vecinos ___ (ser) muy amables.', trans:'Nasi sąsiedzi byli bardzo mili.', answer:'eran', exp:'✅ "eran" — ser: ellos → eran. Opis cechy w przeszłości.' },
+      { tag:'Nieregularne: ir', ctx:'🎒 Szkoła:', q:'Yo ___ (ir) al colegio andando.', trans:'Chodziłem do szkoły pieszo.', answer:'iba', exp:'✅ "iba" — ir: iba, ibas, iba, íbamos, ibais, iban. 2 z 3 wyjątków!' },
+      { tag:'Nieregularne: ver', ctx:'📺 Wieczory:', q:'De niña ___ (ver, ella) dibujos animados.', trans:'Jako dziewczynka oglądała bajki.', answer:'veía', exp:'✅ "veía" — ver: veía, veías, veía... 3 z 3 wyjątków! Zachowuje -e-.' },
+      { tag:'Mix: tener', ctx:'🐕 Dawniej:', q:'Mi familia ___ (tener) un perro enorme.', trans:'Moja rodzina miała ogromnego psa.', answer:'tenía', exp:'✅ "tenía" — tener jest REGULARNE w imperfecto! Ten-ía. Nie mylić z presente: tengo!' },
+      { tag:'Mix: haber', ctx:'🏫 Szkoła:', q:'En mi clase ___ (haber) treinta alumnos.', trans:'W mojej klasie było trzydziestu uczniów.', answer:'había', exp:'✅ "había" — haber: regularne! hab-ía. Había = było (impersonal).' },
+    ]
+  },
+  {
+    id: 'imperfecto-2',
+    title: 'Imperfecto — Kiedy używać?',
+    desc: 'Opis, nawyk, wiek, godzina, tło — ćwicz konteksty',
+    icon: '🌅', theme: 'gold', badge: 'Gramatyka',
+    questions: [
+      { tag:'Nawyk', ctx:'🏃 Dawniej:', q:'Antes ___ (correr, yo) todas las mañanas.', trans:'Wcześniej biegałem co rano.', opts:['corrí','corría','he corrido'], cor:1, exp:'✅ "corría" — antes + nawyk = imperfecto. Powtarzająca się czynność.' },
+      { tag:'Opis', ctx:'🏠 Wspomnienie:', q:'La casa de mis abuelos ___ (ser) enorme y ___ (tener) un jardín precioso.', trans:'Dom dziadków był ogromny i miał piękny ogród.', opts:['fue/tuvo','era/tenía','ha sido/ha tenido'], cor:1, exp:'✅ "era/tenía" — opis wyglądu/cech w przeszłości = imperfecto.' },
+      { tag:'Wiek', ctx:'🎂 Wspomnienie:', q:'Cuando ___ (tener, yo) diez años, me encantaba el chocolate.', trans:'Kiedy miałem dziesięć lat, uwielbiałem czekoladę.', opts:['tuve','tenía','he tenido'], cor:1, exp:'✅ "tenía" — wiek w przeszłości = imperfecto. Tuve = miałem (jednorazowo).' },
+      { tag:'Godzina', ctx:'⏰ Spotkanie:', q:'___ (ser) las tres cuando llegó María.', trans:'Była trzecia, kiedy przyszła María.', opts:['Fue','Eran','Han sido'], cor:1, exp:'✅ "Eran" — godzina w przeszłości = imperfecto. Eran las tres / Era la una.' },
+      { tag:'Tło + przerwanie', ctx:'🌙 Noc:', q:'___ (dormir, yo) cuando sonó el teléfono.', trans:'Spałem, gdy zadzwonił telefon.', opts:['Dormí','Dormía','He dormido'], cor:1, exp:'✅ "Dormía" — tło/trwająca akcja = imperfecto. Sonó = przerwanie (indefinido).' },
+      { tag:'Pogoda', ctx:'☀️ Wspomnienie:', q:'___ (hacer) mucho calor aquel verano.', trans:'Tamtego lata było bardzo gorąco.', opts:['Hizo','Hacía','Ha hecho'], cor:1, exp:'✅ "Hacía" — pogoda jako tło/opis = imperfecto. Hizo = konkretna chwila.' },
+      { tag:'Dwie równoległe', ctx:'🎵 Wieczór:', q:'Mientras yo ___ (cocinar), mi hermano ___ (tocar) la guitarra.', trans:'Podczas gdy gotowałem, mój brat grał na gitarze.', opts:['cociné/tocó','cocinaba/tocaba','he cocinado/ha tocado'], cor:1, exp:'✅ "cocinaba/tocaba" — mientras + dwie równoległe akcje = imperfecto + imperfecto.' },
+      { tag:'Stan emocjonalny', ctx:'😊 Dzieciństwo:', q:'De pequeña, siempre ___ (estar) contenta.', trans:'Jako mała, zawsze byłam zadowolona.', opts:['estuve','estaba','he estado'], cor:1, exp:'✅ "estaba" — siempre + stan emocjonalny w przeszłości = imperfecto.' },
+    ]
+  },
+  // =============== FUTURO PRÓXIMO ===============
+  {
+    id: 'futuro-proximo',
+    title: 'Futuro Próximo — ir a + infinitivo',
+    desc: 'Voy a comer, vas a ver — plany i zamiary',
+    icon: '📅', theme: 'green', badge: 'Gramatyka',
+    questions: [
+      { tag:'Plan bliski', ctx:'🍽️ Wieczór:', q:'Esta noche ___ (cenar, nosotros) en un restaurante.', trans:'Dziś wieczorem zjemy kolację w restauracji.', opts:['cenaremos','vamos a cenar','cenamos'], cor:1, exp:'✅ "vamos a cenar" — plan/zamiar na bliską przyszłość → ir a + infinitivo.' },
+      { tag:'Zamiar', ctx:'📚 Studia:', q:'El próximo año ___ (estudiar, yo) en España.', trans:'W przyszłym roku będę studiować w Hiszpanii.', opts:['estudiaré','voy a estudiar','estudio'], cor:1, exp:'✅ "voy a estudiar" — zamiar/decyzja podjęta → ir a + infinitivo. Estudiaré też OK ale mniej naturalne.' },
+      { tag:'Ostrzeżenie', ctx:'☁️ Pogoda:', q:'Mira las nubes, ___ (llover).', trans:'Popatrz na chmury, zaraz będzie padać.', opts:['lloverá','va a llover','llueve'], cor:1, exp:'✅ "va a llover" — przewidywanie na podstawie dowodów → ir a + infinitivo.' },
+      { tag:'Pytanie o plany', ctx:'🏖️ Wakacje:', q:'¿Qué ___ (hacer, tú) este fin de semana?', trans:'Co zamierzasz robić w ten weekend?', opts:['harás','vas a hacer','haces'], cor:1, exp:'✅ "vas a hacer" — pytanie o plany → ir a + infinitivo. Bardzo naturalne!' },
+      { tag:'Futuro Simple vs Próximo', ctx:'💍 Obietnica:', q:'Te ___ (llamar, yo) mañana sin falta.', trans:'Zadzwonię do ciebie jutro na pewno.', opts:['voy a llamar','llamaré','llamo'], cor:1, exp:'✅ "llamaré" — obietnica/zapewnienie → Futuro Simple. Ale "voy a llamar" też poprawne w mowie.' },
+      { tag:'Przeczenie', ctx:'🎉 Impreza:', q:'No ___ (ir, yo) a la fiesta de Juan.', trans:'Nie pójdę na imprezę Juana.', opts:['iré','voy a ir','fui'], cor:1, exp:'✅ "voy a ir" — decyzja o bliskim zamiarze. Ir a ir — brzmi dziwnie ale jest poprawne!' },
+      { tag:'Imperfecto + ir a', ctx:'📞 Historia:', q:'Ayer ___ (llamar, yo) a María pero al final no pude.', trans:'Wczoraj miałem zamiar zadzwonić do Marii ale w końcu nie mogłem.', opts:['iba a llamar','fui a llamar','llamaba'], cor:0, exp:'✅ "iba a llamar" — zamiar w przeszłości który się nie spełnił → iba a + infinitivo.' },
+      { tag:'Mix: próximo vs simple', ctx:'🌍 Marzenia:', q:'Algún día ___ (visitar, yo) Japón.', trans:'Kiedyś odwiedzę Japonię.', opts:['voy a visitar','visitaré','visito'], cor:1, exp:'✅ "visitaré" — algún día = odległe marzenie → Futuro Simple lepiej. Voy a = bardziej konkretny plan.' },
+    ]
+  },
+  {
+    id: 'futuro-proximo-2',
+    title: 'Futuro Próximo vs Simple',
+    desc: 'Kiedy ir a + infinitivo, a kiedy Futuro Simple?',
+    icon: '📅', theme: 'green', badge: 'Gramatyka',
+    questions: [
+      { tag:'Plan konkretny', ctx:'✈️ Lotnisko:', q:'Mañana a las 8 ___ (salir, yo) de viaje.', trans:'Jutro o 8 wyjeżdżam w podróż.', opts:['saldré','voy a salir','salgo'], cor:1, exp:'✅ "voy a salir" — konkretny plan z datą/godziną → ir a + infinitivo (naturalne w mowie).' },
+      { tag:'Obietnica', ctx:'💑 Para:', q:'Te lo ___ (decir, yo), lo prometo.', trans:'Powiem ci, obiecuję.', opts:['voy a decir','diré','digo'], cor:1, exp:'✅ "diré" — obietnica → Futuro Simple brzmi bardziej uroczyście.' },
+      { tag:'Hipoteza', ctx:'🚪 Dzwonek:', q:'¿Quién será? — ___ (ser) el cartero.', trans:'Kto to może być? — Pewnie listonosz.', opts:['Va a ser','Será','Es'], cor:1, exp:'✅ "Será" — domysł/hipoteza o teraźniejszości → Futuro Simple. ¿Dónde estará Ana?' },
+      { tag:'Dowód', ctx:'🤰 Wiadomość:', q:'¡María ___ (tener) un bebé!', trans:'María będzie miała dziecko!', opts:['tendrá','va a tener','tiene'], cor:1, exp:'✅ "va a tener" — wiadomość oparta na faktach/dowodach → ir a + infinitivo.' },
+      { tag:'Spontaniczna decyzja', ctx:'📞 Telefon:', q:'Suena el teléfono. Yo ___ (coger).', trans:'Dzwoni telefon. Ja odbiorę.', opts:['voy a coger','cogeré','cojo'], cor:0, exp:'✅ "voy a coger" — spontaniczna reakcja na sytuację → ir a. W Hiszpanii też: "Yo cojo" (presente).' },
+      { tag:'Przyszłość ogólna', ctx:'🔮 Przepowiednia:', q:'En el futuro, todos ___ (hablar) tres idiomas.', trans:'W przyszłości wszyscy będą mówić trzema językami.', opts:['van a hablar','hablarán','hablan'], cor:1, exp:'✅ "hablarán" — ogólna przyszłość/przepowiednia → Futuro Simple.' },
+      { tag:'Negatywny zamiar w przeszłości', ctx:'🎭 Historia:', q:'___ (salir, ella) pero empezó a llover.', trans:'Miała wyjść, ale zaczęło padać.', opts:['Iba a salir','Salió','Saldría'], cor:0, exp:'✅ "Iba a salir" — zamiar w przeszłości który się nie zrealizował → iba a + infinitivo.' },
+      { tag:'Emocjonalne', ctx:'😠 Kłótnia:', q:'¡Te ___ (arrepentir) de esto!', trans:'Będziesz tego żałować!', opts:['vas a arrepentir','arrepentirás','arrepientes'], cor:0, exp:'✅ "vas a arrepentir" — groźba/emocjonalne ostrzeżenie → ir a + infinitivo (dobitne).' },
+    ]
+  },
+  // =============== COMPARATIVOS ===============
+  {
+    id: 'comparativos',
+    title: 'Comparativos y Superlativos',
+    desc: 'Más...que, menos...que, mejor, peor, el más...',
+    icon: '⚖️', theme: 'blue', badge: 'Gramatyka',
+    questions: [
+      { tag:'Más...que', ctx:'👫 Rodzeństwo:', q:'Mi hermano es ___ alto ___ yo.', trans:'Mój brat jest wyższy niż ja.', opts:['más/que','más/de','mayor/que'], cor:0, exp:'✅ "más alto que" — porównanie: más + przymiotnik + que.' },
+      { tag:'Menos...que', ctx:'🏙️ Miasta:', q:'Esta ciudad es ___ ruidosa ___ Madrid.', trans:'To miasto jest mniej hałaśliwe niż Madryt.', opts:['menos/de','menos/que','menor/que'], cor:1, exp:'✅ "menos ruidosa que" — porównanie niższe: menos + przymiotnik + que.' },
+      { tag:'Mejor', ctx:'🍕 Jedzenie:', q:'La pizza italiana es ___ que la congelada.', trans:'Pizza włoska jest lepsza niż mrożona.', opts:['más buena','mejor','más bien'], cor:1, exp:'✅ "mejor" — nieregularne: bueno → mejor (nie "más bueno"). mejor QUE.' },
+      { tag:'Peor', ctx:'☁️ Pogoda:', q:'El tiempo hoy es ___ que ayer.', trans:'Pogoda dziś jest gorsza niż wczoraj.', opts:['más malo','peor','más mal'], cor:1, exp:'✅ "peor" — nieregularne: malo → peor (nie "más malo"). peor QUE.' },
+      { tag:'Mayor/menor', ctx:'👨‍👩‍👧‍👦 Rodzina:', q:'Ana tiene 25 años y Luis 18. Ana es ___ que Luis.', trans:'Ana ma 25 lat a Luis 18. Ana jest starsza od Luisa.', opts:['más vieja','mayor','más grande'], cor:1, exp:'✅ "mayor" — wiek: mayor = starszy, menor = młodszy. Nie "más viejo" (to o przedmiotach).' },
+      { tag:'Tan...como', ctx:'🏃 Sport:', q:'Pedro corre ___ rápido ___ María.', trans:'Pedro biega tak szybko jak María.', opts:['tan/como','tanto/como','más/que'], cor:0, exp:'✅ "tan rápido como" — równość: tan + przymiotnik/przysłówek + como.' },
+      { tag:'Tanto...como', ctx:'💰 Pieniądze:', q:'Yo gano ___ dinero ___ tú.', trans:'Zarabiam tyle pieniędzy co ty.', opts:['tan/como','tanto/como','más/que'], cor:1, exp:'✅ "tanto dinero como" — przed rzeczownikiem: tanto/a/os/as + rzeczownik + como.' },
+      { tag:'Superlativo', ctx:'🏔️ Geografia:', q:'El Everest es ___ montaña ___ alta del mundo.', trans:'Everest jest najwyższą górą świata.', opts:['la/más','la/mayor','una/más'], cor:0, exp:'✅ "la montaña más alta" — superlativo: el/la + rzeczownik + más + przymiotnik + de.' },
+    ]
+  },
+  {
+    id: 'comparativos-2',
+    title: 'Comparativos — Trudniejszy',
+    desc: 'Pułapki, wyjątki, superlativo absoluto',
+    icon: '⚖️', theme: 'red', badge: 'Gramatyka',
+    questions: [
+      { tag:'Más de + número', ctx:'👥 Impreza:', q:'Vinieron ___ veinte personas a la fiesta.', trans:'Przyszło więcej niż dwadzieścia osób na imprezę.', opts:['más que','más de','más como'], cor:1, exp:'✅ "más de" — przed liczbą ZAWSZE "más de" (nie "más que"). Más de 20, menos de 10.' },
+      { tag:'Mejor vs más bueno', ctx:'🧑 Charakter:', q:'Juan es ___ persona del grupo.', trans:'Juan jest najlepszą osobą w grupie.', opts:['la mejor','la más buena','la más mejor'], cor:0, exp:'✅ "la mejor" — mejor = lepszy/najlepszy. ¡Nunca "más mejor"! To częsty błąd.' },
+      { tag:'-ísimo', ctx:'🍕 Entuzjazm:', q:'Esta pizza está ___ (rico).', trans:'Ta pizza jest pyszniutka.', opts:['ricísima','riquísima','muy rica'], cor:1, exp:'✅ "riquísima" — rico → riquísima (c→qu przed -ísimo). Superlativo absoluto!' },
+      { tag:'Tantos...como', ctx:'📚 Porównanie:', q:'No he leído ___ libros ___ tú.', trans:'Nie przeczytałem tylu książek co ty.', opts:['tan/como','tantos/como','tanto/que'], cor:1, exp:'✅ "tantos libros como" — tanto zgadza się z rzeczownikiem: tantos (masc. pl.).' },
+      { tag:'El/la más...de', ctx:'🎓 Klasa:', q:'María es ___ inteligente ___ la clase.', trans:'María jest najinteligentniejsza w klasie.', opts:['la más/de','la más/en','más/que'], cor:0, exp:'✅ "la más inteligente de" — superlativo: el/la más... DE (nie "en"!).' },
+      { tag:'Menor', ctx:'👶 Rodzeństwo:', q:'Soy el ___ de tres hermanos.', trans:'Jestem najmłodszy z trzech braci.', opts:['más joven','menor','más pequeño'], cor:1, exp:'✅ "menor" — wiek w rodzinie: el mayor = najstarszy, el menor = najmłodszy.' },
+      { tag:'Igual de...que', ctx:'📏 Porównanie:', q:'Este examen es ___ difícil ___ el anterior.', trans:'Ten egzamin jest równie trudny jak poprzedni.', opts:['igual de/que','tan/que','igual/como'], cor:0, exp:'✅ "igual de difícil que" — igual de + przymiotnik + que = równie... jak.' },
+      { tag:'Cada vez más', ctx:'📈 Trend:', q:'El español es ___ popular en el mundo.', trans:'Hiszpański jest coraz bardziej popularny na świecie.', opts:['más y más','cada vez más','siempre más'], cor:1, exp:'✅ "cada vez más" — coraz bardziej. Cada vez más/menos + przymiotnik. Muy natural!' },
+    ]
+  },
+  // =============== PERÍFRASIS VERBALES ===============
+  {
+    id: 'perifrasis',
+    title: 'Perífrasis Verbales',
+    desc: 'Tener que, hay que, deber, acabar de, volver a...',
+    icon: '🔗', theme: 'purple', badge: 'Gramatyka',
+    questions: [
+      { tag:'Tener que', ctx:'📚 Obowiązek:', q:'___ (tener que, yo) estudiar para el examen.', trans:'Muszę się uczyć na egzamin.', opts:['Tengo que','He de','Debo de'], cor:0, exp:'✅ "Tengo que" — osobisty obowiązek/konieczność → tener que + infinitivo.' },
+      { tag:'Hay que', ctx:'🏠 Zasada:', q:'___ limpiar la cocina todos los días.', trans:'Trzeba sprzątać kuchnię codziennie.', opts:['Hay que','Tiene que','Se debe'], cor:0, exp:'✅ "Hay que" — ogólny obowiązek (bezosobowe, bez konkretnej osoby).' },
+      { tag:'Deber', ctx:'🏥 Lekarz:', q:'Usted ___ (deber) descansar más.', trans:'Powinien pan więcej odpoczywać.', opts:['debe','tiene que','hay que'], cor:0, exp:'✅ "debe" — deber + infinitivo = powinność/obowiązek moralny. Mniej silne niż tener que.' },
+      { tag:'Acabar de', ctx:'🍽️ Właśnie:', q:'No tengo hambre, ___ (acabar de, yo) comer.', trans:'Nie jestem głodny, właśnie zjadłem.', opts:['acabo de','he acabado de','terminé de'], cor:0, exp:'✅ "acabo de" — acabar de + infinitivo = właśnie coś zrobiłem. Muy útil!' },
+      { tag:'Volver a', ctx:'📱 Telefon:', q:'No me contestó, voy a ___ (volver a) llamar.', trans:'Nie odebrał, zadzwonię ponownie.', opts:['volver a','llamar de nuevo','repetir'], cor:0, exp:'✅ "volver a" — volver a + infinitivo = robić coś ponownie/znowu.' },
+      { tag:'Dejar de', ctx:'🚭 Decyzja:', q:'Mi padre ___ (dejar de) fumar hace cinco años.', trans:'Mój ojciec rzucił palenie pięć lat temu.', opts:['dejó de','paró de','terminó de'], cor:0, exp:'✅ "dejó de" — dejar de + infinitivo = przestać coś robić.' },
+      { tag:'Ponerse a', ctx:'🌧️ Nagle:', q:'De repente ___ (ponerse a) llover.', trans:'Nagle zaczęło padać.', opts:['se puso a','empezó a','comenzó a'], cor:0, exp:'✅ "se puso a" — ponerse a + infinitivo = zacząć nagle. Empezó a też OK ale ponerse a = bardziej nagłe.' },
+      { tag:'Soler', ctx:'☕ Nawyk:', q:'Mi madre ___ (soler) despertarse a las seis.', trans:'Moja mama zwykle budzi się o szóstej.', opts:['suele','acostumbra','tiene la costumbre de'], cor:0, exp:'✅ "suele" — soler + infinitivo = zwykle/zazwyczaj robić. ¡DEFECTIVO — nie ma wszystkich form!' },
+    ]
+  },
+  {
+    id: 'perifrasis-2',
+    title: 'Perífrasis — Trudniejszy',
+    desc: 'Llevar + gerundio, seguir + gerundio, ir + gerundio...',
+    icon: '🔗', theme: 'red', badge: 'Gramatyka',
+    questions: [
+      { tag:'Llevar + gerundio', ctx:'⏰ Czas:', q:'___ (llevar, yo) dos horas esperando el autobús.', trans:'Czekam na autobus od dwóch godzin.', opts:['Llevo','Estoy','Hace'], cor:0, exp:'✅ "Llevo" — llevar + czas + gerundio = robić coś od X czasu. Bardzo hiszpańska konstrukcja!' },
+      { tag:'Seguir + gerundio', ctx:'🎓 Studia:', q:'¿___ (seguir, tú) estudiando español?', trans:'Nadal uczysz się hiszpańskiego?', opts:['Sigues','Continúas','Estás'], cor:0, exp:'✅ "Sigues" — seguir + gerundio = kontynuować/nadal robić.' },
+      { tag:'Ir + gerundio', ctx:'📊 Postęp:', q:'Los precios ___ (ir) subiendo poco a poco.', trans:'Ceny stopniowo rosną.', opts:['van','están','siguen'], cor:0, exp:'✅ "van" — ir + gerundio = stopniowy postęp/rozwój sytuacji.' },
+      { tag:'Estar a punto de', ctx:'🚂 Dworzec:', q:'¡Corre! El tren ___ (estar a punto de) salir.', trans:'Biegnij! Pociąg zaraz odjeżdża.', opts:['está a punto de','va a','acaba de'], cor:0, exp:'✅ "está a punto de" — estar a punto de = być o krok od / zaraz coś zrobić.' },
+      { tag:'Quedar por', ctx:'📝 Lista:', q:'Todavía nos ___ (quedar) tres ejercicios por hacer.', trans:'Zostały nam jeszcze trzy ćwiczenia do zrobienia.', opts:['quedan','faltan','restan'], cor:0, exp:'✅ "quedan" — quedar por + infinitivo = zostać do zrobienia.' },
+      { tag:'Dejar de vs Parar de', ctx:'🗣️ Kłótnia:', q:'¡___ (dejar de) gritar! Los vecinos nos van a oír.', trans:'Przestań krzyczeć! Sąsiedzi nas usłyszą.', opts:['Deja de','Para de','Termina de'], cor:0, exp:'✅ "Deja de" — deja de + infinitivo (imperativo). Para de jest bardziej potoczne.' },
+      { tag:'Tardar en', ctx:'🏥 Szpital:', q:'La ambulancia ___ (tardar) veinte minutos en llegar.', trans:'Karetka jechała dwadzieścia minut.', opts:['tardó','llevó','duró'], cor:0, exp:'✅ "tardó" — tardar + czas + en + infinitivo = potrzebować X czasu żeby coś zrobić.' },
+      { tag:'Mix', ctx:'💼 Rozmowa:', q:'___ (acabar de, yo) cambiar de trabajo y ya ___ (llevar) una semana trabajando.', trans:'Właśnie zmieniłem pracę i pracuję już tydzień.', opts:['Acabo de / llevo','He acabado de / estoy','Terminé de / hace'], cor:0, exp:'✅ "Acabo de / llevo" — acabar de = właśnie. Llevar + czas + gerundio = od X czasu.' },
+    ]
+  },
+  // =============== PREPOSICIONES ===============
+  {
+    id: 'preposiciones',
+    title: 'Preposiciones con Verbos',
+    desc: 'Pensar en, soñar con, depender de — przyimki z czasownikami',
+    icon: '🎯', theme: 'green', badge: 'Gramatyka',
+    questions: [
+      { tag:'Pensar en', ctx:'💭 Marzenia:', q:'Siempre pienso ___ las vacaciones.', trans:'Zawsze myślę o wakacjach.', opts:['en','de','a'], cor:0, exp:'✅ "pensar en" — myśleć O czymś. Nie mylić z pensar de (=mieć opinię o).' },
+      { tag:'Soñar con', ctx:'😴 Sen:', q:'Anoche soñé ___ ti.', trans:'Wczoraj w nocy śniłem o tobie.', opts:['con','de','en'], cor:0, exp:'✅ "soñar con" — śnić O kimś/czymś. Con, nie de ani en!' },
+      { tag:'Depender de', ctx:'🤷 Decyzja:', q:'Todo depende ___ ti.', trans:'Wszystko zależy od ciebie.', opts:['de','en','a'], cor:0, exp:'✅ "depender de" — zależeć OD kogoś/czegoś.' },
+      { tag:'Enamorarse de', ctx:'💕 Miłość:', q:'Me enamoré ___ ella en la universidad.', trans:'Zakochałem się w niej na uniwersytecie.', opts:['de','con','en'], cor:0, exp:'✅ "enamorarse de" — zakochać się W kimś. Nie "en"!' },
+      { tag:'Preocuparse por', ctx:'😟 Troska:', q:'Mi madre se preocupa mucho ___ mi salud.', trans:'Moja mama bardzo martwi się o moje zdrowie.', opts:['por','de','con'], cor:0, exp:'✅ "preocuparse por" — martwić się O coś.' },
+      { tag:'Dedicarse a', ctx:'💼 Praca:', q:'¿A qué te dedicas? — Me dedico ___ la enseñanza.', trans:'Czym się zajmujesz? — Zajmuję się nauczaniem.', opts:['a','en','de'], cor:0, exp:'✅ "dedicarse a" — zajmować się czymś. ¿A qué te dedicas? = czym się zajmujesz?' },
+      { tag:'Acordarse de', ctx:'🎂 Urodziny:', q:'¿Te acuerdas ___ mi cumpleaños?', trans:'Pamiętasz o moich urodzinach?', opts:['de','en','sobre'], cor:0, exp:'✅ "acordarse de" — pamiętać O czymś. Nie mylić z recordar (bez przyimka).' },
+      { tag:'Invitar a', ctx:'🎉 Impreza:', q:'Te invito ___ cenar en mi casa.', trans:'Zapraszam cię na kolację u mnie.', opts:['a','de','para'], cor:0, exp:'✅ "invitar a" — zapraszać NA coś / DO czegoś.' },
+    ]
+  },
+  {
+    id: 'preposiciones-2',
+    title: 'Preposiciones — Trudniejszy',
+    desc: 'Pułapki: olvidarse de, fijarse en, insistir en...',
+    icon: '🎯', theme: 'red', badge: 'Gramatyka',
+    questions: [
+      { tag:'Olvidarse de', ctx:'🔑 Dom:', q:'Me olvidé ___ cerrar la puerta.', trans:'Zapomniałem zamknąć drzwi.', opts:['de','en','a'], cor:0, exp:'✅ "olvidarse de" — zapomnieć O czymś. Olvidar (bez "se") nie wymaga "de".' },
+      { tag:'Fijarse en', ctx:'👀 Obserwacja:', q:'¿Te has fijado ___ su nuevo corte de pelo?', trans:'Zauważyłeś jego nową fryzurę?', opts:['en','de','a'], cor:0, exp:'✅ "fijarse en" — zwrócić uwagę NA coś.' },
+      { tag:'Insistir en', ctx:'🗣️ Dyskusja:', q:'Mi jefe insiste ___ que termine hoy.', trans:'Mój szef nalega, żebym skończył dziś.', opts:['en','de','a'], cor:0, exp:'✅ "insistir en" — nalegać NA coś. Insistir en que + subjuntivo.' },
+      { tag:'Quejarse de', ctx:'😤 Narzekanie:', q:'Siempre se queja ___ todo.', trans:'Zawsze na wszystko narzeka.', opts:['de','por','en'], cor:0, exp:'✅ "quejarse de" — narzekać NA coś.' },
+      { tag:'Atreverse a', ctx:'🎢 Odwaga:', q:'No me atrevo ___ saltar.', trans:'Nie odważam się skoczyć.', opts:['a','de','en'], cor:0, exp:'✅ "atreverse a" — odważyć się coś zrobić.' },
+      { tag:'Consistir en', ctx:'📋 Wyjaśnienie:', q:'El trabajo consiste ___ atender a los clientes.', trans:'Praca polega na obsłudze klientów.', opts:['en','de','a'], cor:0, exp:'✅ "consistir en" — polegać NA czymś.' },
+      { tag:'Pensar de vs en', ctx:'🤔 Opinia:', q:'¿Qué piensas ___ la nueva ley?', trans:'Co sądzisz o nowej ustawie?', opts:['de','en','sobre'], cor:0, exp:'✅ "pensar de" — pytanie o opinię. Pensar EN = myśleć o (mieć w głowie).' },
+      { tag:'Despedirse de', ctx:'✈️ Lotnisko:', q:'Nos despedimos ___ nuestros amigos en el aeropuerto.', trans:'Pożegnaliśmy się z naszymi przyjaciółmi na lotnisku.', opts:['de','con','a'], cor:0, exp:'✅ "despedirse de" — pożegnać się Z kimś. Nie "con"!' },
+    ]
+  },
+  // =============== INDICATIVO vs SUBJUNTIVO MIX ===============
+  {
+    id: 'ind-vs-subj',
+    title: 'Indicativo vs Subjuntivo — Mix',
+    desc: 'Creo que vs No creo que, Sé que vs Espero que...',
+    icon: '🧠', theme: 'gold', badge: 'Gramatyka',
+    questions: [
+      { tag:'Creo que + IND', ctx:'🌤️ Pogoda:', q:'Creo que mañana ___ (hacer) buen tiempo.', trans:'Myślę, że jutro będzie ładna pogoda.', opts:['haga','hará','hace'], cor:1, exp:'✅ "hará" — creo que + indicativo (pewność). Ale: NO creo que + subjuntivo!' },
+      { tag:'No creo que + SUBJ', ctx:'🏆 Mecz:', q:'No creo que España ___ (ganar) el partido.', trans:'Nie sądzę, żeby Hiszpania wygrała mecz.', opts:['gana','gane','ganará'], cor:1, exp:'✅ "gane" — NO creo que + subjuntivo (wątpliwość/negacja).' },
+      { tag:'Es verdad que + IND', ctx:'📰 Fakty:', q:'Es verdad que el español ___ (ser) difícil a veces.', trans:'To prawda, że hiszpański bywa trudny.', opts:['sea','es','será'], cor:1, exp:'✅ "es" — es verdad/cierto/evidente que + indicativo (stwierdzenie faktu).' },
+      { tag:'No es verdad que + SUBJ', ctx:'🗣️ Sprostowanie:', q:'No es verdad que yo ___ (querer) irme.', trans:'To nieprawda, że chcę odejść.', opts:['quiero','quiera','querré'], cor:1, exp:'✅ "quiera" — NO es verdad que + subjuntivo (zaprzeczenie faktu).' },
+      { tag:'Sé que + IND', ctx:'💼 Praca:', q:'Sé que ___ (tener, tú) mucho trabajo.', trans:'Wiem, że masz dużo pracy.', opts:['tengas','tienes','tendrás'], cor:1, exp:'✅ "tienes" — saber que + indicativo (pewna wiedza).' },
+      { tag:'Espero que + SUBJ', ctx:'🎓 Egzamin:', q:'Espero que ___ (aprobar, tú) el examen.', trans:'Mam nadzieję, że zdasz egzamin.', opts:['apruebas','apruebes','aprobarás'], cor:1, exp:'✅ "apruebes" — esperar que + subjuntivo (życzenie/nadzieja).' },
+      { tag:'Parece que + IND', ctx:'🌧️ Obserwacja:', q:'Parece que ___ (ir) a llover.', trans:'Wygląda na to, że będzie padać.', opts:['vaya','va','irá'], cor:1, exp:'✅ "va" — parece que + indicativo (obserwacja). Ale: No parece que + subjuntivo.' },
+      { tag:'Dudo que + SUBJ', ctx:'🏠 Wizyta:', q:'Dudo que Pedro ___ (venir) a la fiesta.', trans:'Wątpię, czy Pedro przyjdzie na imprezę.', opts:['viene','venga','vendrá'], cor:1, exp:'✅ "venga" — dudar que + subjuntivo (wątpliwość).' },
+    ]
+  },
+  {
+    id: 'ind-vs-subj-2',
+    title: 'Indicativo vs Subjuntivo — Pułapki',
+    desc: 'Aunque, cuando, después de que, buscar que...',
+    icon: '🧠', theme: 'red', badge: 'Gramatyka',
+    questions: [
+      { tag:'Aunque + IND (fakt)', ctx:'🌧️ Pogoda:', q:'Aunque ___ (llover), voy a salir.', trans:'Chociaż pada, wyjdę.', opts:['llueva','llueve','lloverá'], cor:1, exp:'✅ "llueve" — aunque + indicativo = wiem że pada (fakt). Aunque llueva = nawet jeśli (hipoteza).' },
+      { tag:'Aunque + SUBJ (hipoteza)', ctx:'💰 Decyzja:', q:'Aunque me ___ (ofrecer) el doble, no aceptaría.', trans:'Nawet gdyby mi zaproponowali podwójnie, nie przyjąłbym.', opts:['ofrecen','ofrezcan','ofrecerán'], cor:1, exp:'✅ "ofrezcan" — aunque + subjuntivo = hipoteza (nie wiem czy zaoferują).' },
+      { tag:'Cuando + IND (przeszłość)', ctx:'🎒 Szkoła:', q:'Cuando ___ (ser, yo) niño, jugaba al fútbol.', trans:'Kiedy byłem dzieckiem, grałem w piłkę.', opts:['fuera','era','sea'], cor:1, exp:'✅ "era" — cuando + przeszłość = indicativo. Subjuntivo TYLKO z przyszłością!' },
+      { tag:'Cuando + SUBJ (przyszłość)', ctx:'🏠 Plan:', q:'Cuando ___ (terminar, yo) el curso, viajaré a España.', trans:'Kiedy skończę kurs, pojadę do Hiszpanii.', opts:['termino','termine','terminaré'], cor:1, exp:'✅ "termine" — cuando + przyszłość = subjuntivo!' },
+      { tag:'Buscar + que + SUBJ', ctx:'💼 Praca:', q:'Busco un trabajo que ___ (permitir) viajar.', trans:'Szukam pracy, która pozwala podróżować.', opts:['permite','permita','permitirá'], cor:1, exp:'✅ "permita" — szukam czegoś nieznanego (nie wiem czy istnieje) → subjuntivo.' },
+      { tag:'Tener + que + IND', ctx:'💼 Praca:', q:'Tengo un trabajo que me ___ (permitir) viajar.', trans:'Mam pracę, która pozwala mi podróżować.', opts:['permita','permite','permitirá'], cor:1, exp:'✅ "permite" — mam coś konkretnego (istnieje) → indicativo.' },
+      { tag:'Después de que + SUBJ', ctx:'🎬 Plan:', q:'Después de que ___ (terminar) la película, vamos a cenar.', trans:'Jak film się skończy, idziemy na kolację.', opts:['termina','termine','terminará'], cor:1, exp:'✅ "termine" — después de que + subjuntivo (różne podmioty). Después de + infinitivo (ten sam podmiot).' },
+      { tag:'Tal vez + SUBJ', ctx:'🤔 Niepewność:', q:'Tal vez ___ (llegar, ellos) tarde.', trans:'Może przyjdą późno.', opts:['llegan','lleguen','llegarán'], cor:1, exp:'✅ "lleguen" — tal vez / quizá(s) + subjuntivo (niepewność). Z indicativo = większa pewność.' },
+    ]
   }
 ];
 
@@ -826,16 +1079,18 @@ const allWords = [
 // Quiz groupings for sections
 
 const quizSections = {
-  czasy: ['presente-irregular','presente-irregular-hard','preterito','preterito-irregular','condicional','futuro','perfecto','perfecto-2','perfecto-3'],
+  czasy: ['presente-irregular','presente-irregular-hard','preterito','preterito-irregular','imperfecto','imperfecto-2','condicional','futuro','futuro-proximo','futuro-proximo-2','perfecto','perfecto-2','perfecto-3','gerundio','gerundio-2'],
   pluscuamperfecto: ['pluscuamperfecto'],
   presente: ['presente-irregular','presente-irregular-hard'],
   preterito: ['preterito','preterito-irregular'],
+  imperfecto: ['imperfecto','imperfecto-2'],
   perfecto: ['perfecto','perfecto-2','perfecto-3'],
   condicional: ['condicional'],
-  futuro: ['futuro','futuro-2','futuro-3'],
-  subjuntivo: ['subjuntivo','subjuntivo-2','subjuntivo-3'],
+  futuro: ['futuro','futuro-2','futuro-3','futuro-proximo','futuro-proximo-2'],
+  gerundio: ['gerundio','gerundio-2'],
+  subjuntivo: ['subjuntivo','subjuntivo-2','subjuntivo-3','ind-vs-subj','ind-vs-subj-2'],
   zaimki: ['zaimki-podstawy','zaimki-pozycja','zaimki-dwa','zaimki-dwa-2'],
-  inne: ['imperativo','porpara','expresiones-cotidianas','ser-estar','ser-estar-2','ser-estar-3','voz-pasiva','voz-pasiva-2','estilo-indirecto','estilo-indirecto-2','estilo-indirecto-3'],
+  inne: ['imperativo','porpara','expresiones-cotidianas','ser-estar','ser-estar-2','ser-estar-3','voz-pasiva','voz-pasiva-2','estilo-indirecto','estilo-indirecto-2','estilo-indirecto-3','comparativos','comparativos-2','perifrasis','perifrasis-2','preposiciones','preposiciones-2'],
   spojniki: ['spojniki','spojniki-2','spojniki-3'],
-  wyrazenia: ['wyrazenia-tener-hacer-dar'],
+  wyrazenia: ['wyrazenia-tener-hacer-dar','wyrazenia-quedar-llevar'],
 };
