@@ -26,6 +26,7 @@
     <button class="subnav-tab active" onclick="showGrammarSection('czasy', this)">⏱️ Czasy</button>
     <button class="subnav-tab" onclick="showGrammarSection('subjuntivo', this)">💭 Subjuntivo</button>
     <button class="subnav-tab" onclick="showGrammarSection('zaimki', this)">🎯 Zaimki</button>
+    <button class="subnav-tab" onclick="showGrammarSection('konstrukcje', this)">🧩 Konstrukcje</button>
     <button class="subnav-tab" onclick="showGrammarSection('inne', this)">📌 Inne</button>
     <button class="subnav-tab" onclick="showGrammarSection('spojniki', this)">🔗 Spójniki</button>
   </div>
@@ -448,59 +449,69 @@
           <div class="t-rule">⚡ <strong>Voz Pasiva vs Se Pasiva:</strong> El vino <strong class="gold">es producido</strong> en Rioja. = <strong class="gold">Se produce</strong> vino en Rioja. (codzienne użycie)</div>
         </div>
       </div>
-    <div class="theory-box" style="border-left-color: #f59e0b; margin-top: 0; margin-bottom: 24px;">
-        <div class="theory-toggle" onclick="toggleTheory('comparativos-theory')">📖 Teoria — Comparativos y Superlativos <span id="comparativos-theory-arrow">▼</span></div>
-        <div class="theory-body" id="comparativos-theory">
-          <h3>Porównania</h3>
-          <table>
-            <tr><th>Typ</th><th>Wzór</th><th>Przykład</th></tr>
-            <tr><td class="gold">Wyższy</td><td>más + adj + que</td><td>Es más alto que yo.</td></tr>
-            <tr><td class="gold">Niższy</td><td>menos + adj + que</td><td>Es menos caro que el otro.</td></tr>
-            <tr><td class="gold">Równość</td><td>tan + adj + como</td><td>Es tan grande como el mío.</td></tr>
-            <tr><td class="gold">Równość (rzecz.)</td><td>tanto/a/os/as + N + como</td><td>Tiene tantos libros como yo.</td></tr>
-          </table>
-          <div class="t-rule"><strong class="gold">Nieregularne:</strong> bueno → mejor | malo → peor | grande → mayor (wiek) | pequeño → menor (wiek)</div>
-          <div class="t-rule"><strong class="gold">Superlativo:</strong> el/la + más + adj + <strong class="gold">de</strong> — Es la más alta <strong class="gold">de</strong> la clase.</div>
-          <div class="t-rule"><strong class="gold">Superlativo absoluto:</strong> -ísimo/a — rico → riquísimo, largo → larguísimo</div>
-          <div class="t-rule">⚠️ Przed liczbą: más <strong class="gold">de</strong> 20 (nie "más que 20"). ¡Nunca "más mejor"!</div>
-        </div>
-      </div>
-    <div class="theory-box" style="border-left-color: #a855f7; margin-top: 0; margin-bottom: 24px;">
-        <div class="theory-toggle" onclick="toggleTheory('perifrasis-theory')">📖 Teoria — Perífrasis Verbales <span id="perifrasis-theory-arrow">▼</span></div>
-        <div class="theory-body" id="perifrasis-theory">
-          <h3>Obowiązek i konieczność</h3>
-          <div class="t-rule"><strong class="gold">tener que</strong> + inf = musieć (osobiste) — Tengo que estudiar.</div>
-          <div class="t-rule"><strong class="gold">hay que</strong> + inf = trzeba (bezosobowe) — Hay que practicar.</div>
-          <div class="t-rule"><strong class="gold">deber</strong> + inf = powinno się — Debes descansar.</div>
-          <h3 style="margin-top:16px;">Fazy akcji</h3>
-          <table>
-            <tr><th>Perífrasis</th><th>Znaczenie</th><th>Przykład</th></tr>
-            <tr><td class="gold">ir a + inf</td><td>zamierzać</td><td>Voy a estudiar.</td></tr>
-            <tr><td class="gold">estar a punto de + inf</td><td>zaraz coś zrobić</td><td>Está a punto de llover.</td></tr>
-            <tr><td class="gold">ponerse a + inf</td><td>zacząć nagle</td><td>Se puso a llorar.</td></tr>
-            <tr><td class="gold">acabar de + inf</td><td>właśnie zrobić</td><td>Acabo de llegar.</td></tr>
-            <tr><td class="gold">dejar de + inf</td><td>przestać</td><td>Dejó de fumar.</td></tr>
-            <tr><td class="gold">volver a + inf</td><td>znowu zrobić</td><td>Volvió a llamar.</td></tr>
-            <tr><td class="gold">soler + inf</td><td>zwykle robić</td><td>Suelo correr por las mañanas.</td></tr>
-          </table>
-        </div>
-      </div>
-    <div class="theory-box" style="border-left-color: #22c55e; margin-top: 0; margin-bottom: 24px;">
-        <div class="theory-toggle" onclick="toggleTheory('preposiciones-theory')">📖 Teoria — Preposiciones con Verbos <span id="preposiciones-theory-arrow">▼</span></div>
-        <div class="theory-body" id="preposiciones-theory">
-          <h3>Najważniejsze połączenia czasownik + przyimek</h3>
-          <table>
-            <tr><th>Przyimek</th><th>Czasowniki</th></tr>
-            <tr><td class="gold">EN</td><td>pensar en, fijarse en, insistir en, consistir en, confiar en, tardar en</td></tr>
-            <tr><td class="gold">DE</td><td>acordarse de, olvidarse de, enamorarse de, depender de, quejarse de, despedirse de</td></tr>
-            <tr><td class="gold">A</td><td>dedicarse a, atreverse a, invitar a, acostumbrarse a, negarse a, aprender a</td></tr>
-            <tr><td class="gold">CON</td><td>soñar con, contar con, quedarse con, casarse con</td></tr>
-            <tr><td class="gold">POR</td><td>preocuparse por, interesarse por, disculparse por</td></tr>
-          </table>
-          <div class="t-rule">⚠️ <strong>Pułapka:</strong> pensar <strong class="gold">en</strong> = myśleć o | pensar <strong class="gold">de</strong> = mieć opinię o | pensar <strong class="gold">∅</strong> = zamierzać</div>
-        </div>
-      </div>
     <div class="quiz-grid" id="inne-quizzes"></div>
+  </div>
+
+  <!-- KONSTRUKCJE -->
+  <div class="subpage" id="grammar-konstrukcje">
+    <div class="welcome">
+      <h2>🧩 <em>Konstrukcje</em></h2>
+      <p>Comparativos, perífrasis verbales, preposiciones — kluczowe struktury B1.</p>
+    </div>
+    <div class="theory-box" style="border-left-color: #f59e0b;">
+      <div class="theory-toggle" onclick="toggleTheory('comparativos-theory')">📖 Teoria — Comparativos y Superlativos <span id="comparativos-theory-arrow">▼</span></div>
+      <div class="theory-body" id="comparativos-theory">
+        <h3>Porównania</h3>
+        <table>
+          <tr><th>Typ</th><th>Wzór</th><th>Przykład</th></tr>
+          <tr><td class="gold">Wyższy</td><td>más + adj + que</td><td>Es más alto que yo.</td></tr>
+          <tr><td class="gold">Niższy</td><td>menos + adj + que</td><td>Es menos caro que el otro.</td></tr>
+          <tr><td class="gold">Równość</td><td>tan + adj + como</td><td>Es tan grande como el mío.</td></tr>
+          <tr><td class="gold">Równość (rzecz.)</td><td>tanto/a/os/as + N + como</td><td>Tiene tantos libros como yo.</td></tr>
+        </table>
+        <div class="t-rule"><strong class="gold">Nieregularne:</strong> bueno → mejor | malo → peor | grande → mayor (wiek) | pequeño → menor (wiek)</div>
+        <div class="t-rule"><strong class="gold">Superlativo:</strong> el/la + más + adj + <strong class="gold">de</strong> — Es la más alta <strong class="gold">de</strong> la clase.</div>
+        <div class="t-rule"><strong class="gold">Superlativo absoluto:</strong> -ísimo/a — rico → riquísimo, largo → larguísimo</div>
+        <div class="t-rule">⚠️ Przed liczbą: más <strong class="gold">de</strong> 20 (nie "más que 20"). ¡Nunca "más mejor"!</div>
+      </div>
+    </div>
+    <div class="theory-box" style="border-left-color: #a855f7;">
+      <div class="theory-toggle" onclick="toggleTheory('perifrasis-theory')">📖 Teoria — Perífrasis Verbales <span id="perifrasis-theory-arrow">▼</span></div>
+      <div class="theory-body" id="perifrasis-theory">
+        <h3>Obowiązek i konieczność</h3>
+        <div class="t-rule"><strong class="gold">tener que</strong> + inf = musieć (osobiste) — Tengo que estudiar.</div>
+        <div class="t-rule"><strong class="gold">hay que</strong> + inf = trzeba (bezosobowe) — Hay que practicar.</div>
+        <div class="t-rule"><strong class="gold">deber</strong> + inf = powinno się — Debes descansar.</div>
+        <h3 style="margin-top:16px;">Fazy akcji</h3>
+        <table>
+          <tr><th>Perífrasis</th><th>Znaczenie</th><th>Przykład</th></tr>
+          <tr><td class="gold">ir a + inf</td><td>zamierzać</td><td>Voy a estudiar.</td></tr>
+          <tr><td class="gold">estar a punto de + inf</td><td>zaraz coś zrobić</td><td>Está a punto de llover.</td></tr>
+          <tr><td class="gold">ponerse a + inf</td><td>zacząć nagle</td><td>Se puso a llorar.</td></tr>
+          <tr><td class="gold">acabar de + inf</td><td>właśnie zrobić</td><td>Acabo de llegar.</td></tr>
+          <tr><td class="gold">dejar de + inf</td><td>przestać</td><td>Dejó de fumar.</td></tr>
+          <tr><td class="gold">volver a + inf</td><td>znowu zrobić</td><td>Volvió a llamar.</td></tr>
+          <tr><td class="gold">soler + inf</td><td>zwykle robić</td><td>Suelo correr por las mañanas.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="theory-box" style="border-left-color: #22c55e;">
+      <div class="theory-toggle" onclick="toggleTheory('preposiciones-theory')">📖 Teoria — Preposiciones con Verbos <span id="preposiciones-theory-arrow">▼</span></div>
+      <div class="theory-body" id="preposiciones-theory">
+        <h3>Najważniejsze połączenia czasownik + przyimek</h3>
+        <table>
+          <tr><th>Przyimek</th><th>Czasowniki</th></tr>
+          <tr><td class="gold">EN</td><td>pensar en, fijarse en, insistir en, consistir en, confiar en, tardar en</td></tr>
+          <tr><td class="gold">DE</td><td>acordarse de, olvidarse de, enamorarse de, depender de, quejarse de, despedirse de</td></tr>
+          <tr><td class="gold">A</td><td>dedicarse a, atreverse a, invitar a, acostumbrarse a, negarse a, aprender a</td></tr>
+          <tr><td class="gold">CON</td><td>soñar con, contar con, quedarse con, casarse con</td></tr>
+          <tr><td class="gold">POR</td><td>preocuparse por, interesarse por, disculparse por</td></tr>
+        </table>
+        <div class="t-rule">⚠️ <strong>Pułapka:</strong> pensar <strong class="gold">en</strong> = myśleć o | pensar <strong class="gold">de</strong> = mieć opinię o | pensar <strong class="gold">∅</strong> = zamierzać</div>
+      </div>
+    </div>
+    <div class="section-title">Quizy — Konstrukcje</div>
+    <div class="quiz-grid" id="konstrukcje-quizzes"></div>
   </div>
 
   <div class="subpage" id="grammar-spojniki">

@@ -1090,7 +1090,8 @@ const quizSections = {
   gerundio: ['gerundio','gerundio-2'],
   subjuntivo: ['subjuntivo','subjuntivo-2','subjuntivo-3','ind-vs-subj','ind-vs-subj-2'],
   zaimki: ['zaimki-podstawy','zaimki-pozycja','zaimki-dwa','zaimki-dwa-2'],
-  inne: ['imperativo','porpara','expresiones-cotidianas','ser-estar','ser-estar-2','ser-estar-3','voz-pasiva','voz-pasiva-2','estilo-indirecto','estilo-indirecto-2','estilo-indirecto-3','comparativos','comparativos-2','perifrasis','perifrasis-2','preposiciones','preposiciones-2'],
+  inne: ['imperativo','porpara','expresiones-cotidianas','ser-estar','ser-estar-2','ser-estar-3','voz-pasiva','voz-pasiva-2','estilo-indirecto','estilo-indirecto-2','estilo-indirecto-3'],
+  konstrukcje: ['comparativos','comparativos-2','perifrasis','perifrasis-2','preposiciones','preposiciones-2'],
   spojniki: ['spojniki','spojniki-2','spojniki-3'],
   wyrazenia: ['wyrazenia-tener-hacer-dar','wyrazenia-quedar-llevar'],
 };
