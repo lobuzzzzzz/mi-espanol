@@ -41,6 +41,15 @@
     <button class="subnav2-tab" onclick="showCzasSection('futuro', this)">🚀 Futuro</button>
     <button class="subnav2-tab" onclick="showCzasSection('pluscuamperfecto', this)">⏪ Pluscuam</button>
   </div>
+  <!-- INNE SUBMENU -->
+  <div class="subnav2" id="inne-subnav">
+    <button class="subnav2-tab active" onclick="showInneSection('imperativo', this)">📢 Imperativo</button>
+    <button class="subnav2-tab" onclick="showInneSection('porpara', this)">⚖️ Por/Para</button>
+    <button class="subnav2-tab" onclick="showInneSection('ser-estar', this)">🔵 Ser/Estar</button>
+    <button class="subnav2-tab" onclick="showInneSection('expresiones', this)">🗣️ Wyrażenia</button>
+    <button class="subnav2-tab" onclick="showInneSection('estilo', this)">💬 Estilo Ind.</button>
+    <button class="subnav2-tab" onclick="showInneSection('voz-pasiva', this)">🔄 Voz Pasiva</button>
+  </div>
 </nav>
 
 <!-- DASHBOARD -->
@@ -363,98 +372,145 @@
 
   <!-- INNE -->
   <div class="subpage" id="grammar-inne">
-    <div class="welcome">
-      <h2>📌 <em>Inne</em></h2>
-      <p>Imperativo, Por vs Para, Ser vs Estar, Voz Pasiva, Estilo Indirecto i wyrażenia codzienne.</p>
-    </div>
 
-    <div class="section-title">📢 Imperativo & ⚖️ Por vs Para</div>
-    <div class="theory-box">
-      <div class="theory-toggle" onclick="toggleTheory('inne-theory')">📖 Teoria — Imperativo & Por vs Para <span id="inne-theory-arrow">▼</span></div>
-      <div class="theory-body" id="inne-theory">
-        <h3>Imperativo — tryb rozkazujący</h3>
-        <div class="t-rule">Tú twierdzący = forma él/ella: habla, come, escribe. Nieregularne: ven, haz, di, sal, pon, ten, ve, sé.</div>
-        <div class="t-rule">Przeczący = no + subjuntivo: no habl<strong class="gold">es</strong>, no com<strong class="gold">as</strong>.</div>
-        <h3 style="margin-top:16px;">Por vs Para</h3>
-        <table>
-          <tr><th>POR</th><th>PARA</th></tr>
-          <tr><td>przyczyna (z powodu)</td><td>cel (żeby)</td></tr>
-          <tr><td>czas trwania (przez)</td><td>termin (do/na)</td></tr>
-          <tr><td>wymiana (za)</td><td>odbiorca (dla)</td></tr>
-          <tr><td>ruch przez miejsce</td><td>opinia (moim zdaniem)</td></tr>
-        </table>
+    <!-- IMPERATIVO -->
+    <div class="inne-section active" id="inne-imperativo">
+      <div class="welcome">
+        <h2>📢 <em>Imperativo</em></h2>
+        <p>Tryb rozkazujący — rozkazy, prośby, instrukcje.</p>
       </div>
-    </div>
-
-    <div class="section-title">🔵 Ser vs Estar</div>
-    <div class="theory-box" style="border-left-color: var(--blue);">
-      <div class="theory-toggle" onclick="toggleTheory('ser-estar-theory')">📖 Teoria — Ser vs Estar <span id="ser-estar-theory-arrow">▼</span></div>
-      <div class="theory-body" id="ser-estar-theory">
-        <h3>SER — cechy stałe, tożsamość, definicja</h3>
-        <div class="t-rule"><strong class="gold">Pochodzenie/narodowość:</strong> Soy polaco. Es de Madrid.</div>
-        <div class="t-rule"><strong class="gold">Zawód:</strong> Es médico. Somos estudiantes.</div>
-        <div class="t-rule"><strong class="gold">Cechy trwałe:</strong> Es simpático. Es inteligente.</div>
-        <div class="t-rule"><strong class="gold">Czas/daty:</strong> Son las tres. Es lunes. Es verano.</div>
-        <div class="t-rule"><strong class="gold">Wydarzenie (gdzie się odbywa):</strong> La fiesta <strong class="gold">es</strong> en mi casa.</div>
-        <h3 style="margin-top:16px;">ESTAR — stany, położenie, wyniki czynności</h3>
-        <div class="t-rule"><strong class="blue">Położenie:</strong> Estoy en casa. Madrid <strong class="blue">está</strong> en España.</div>
-        <div class="t-rule"><strong class="blue">Stan tymczasowy:</strong> Estoy cansado. Está enfermo.</div>
-        <div class="t-rule"><strong class="blue">Wynik czynności:</strong> La puerta está abierta. Está muerto.</div>
-        <div class="t-rule"><strong class="blue">Estar + gerundio:</strong> Estoy comiendo. Está trabajando.</div>
-        <h3 style="margin-top:16px;">🔴 Pułapki — ten sam przymiotnik, różne znaczenie!</h3>
-        <table>
-          <tr><th>Przymiotnik</th><th>SER</th><th>ESTAR</th></tr>
-          <tr><td class="gold">aburrido</td><td>jest nudny (z natury)</td><td>nudzi mu się (teraz)</td></tr>
-          <tr><td class="gold">malo</td><td>jest złym człowiekiem</td><td>jest chory</td></tr>
-          <tr><td class="gold">bueno</td><td>jest dobrym człowiekiem</td><td>jest smaczny/atrakcyjny</td></tr>
-          <tr><td class="gold">listo</td><td>jest bystry</td><td>jest gotowy</td></tr>
-          <tr><td class="gold">rico</td><td>jest bogaty</td><td>jest pyszny</td></tr>
-          <tr><td class="gold">seguro</td><td>jest bezpieczny (cecha)</td><td>jest pewny (opinia)</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="section-title">🗣️ Estilo Indirecto</div>
-    <div class="theory-box" style="border-left-color: var(--green);">
-      <div class="theory-toggle" onclick="toggleTheory('estilo-theory')">📖 Teoria — Estilo Indirecto (B1) <span id="estilo-theory-arrow">▼</span></div>
-      <div class="theory-body" id="estilo-theory">
-        <h3>Podstawowa zasada — czasy się przesuwają wstecz</h3>
-        <table>
-          <tr><th>Estilo Directo</th><th>Estilo Indirecto</th></tr>
-          <tr><td class="gold">Presente → </td><td><strong class="green">Imperfecto</strong> — "Tengo hambre." → Dijo que <strong class="green">tenía</strong> hambre.</td></tr>
-          <tr><td class="gold">Futuro → </td><td><strong class="green">Condicional</strong> — "Vendré." → Dijo que <strong class="green">vendría</strong>.</td></tr>
-          <tr><td class="gold">Imperfecto → </td><td><strong class="green">Imperfecto</strong> (bez zmiany!) — "Estaba cansado." → Dijo que <strong class="green">estaba</strong> cansado.</td></tr>
-          <tr><td class="gold">Imperativo → </td><td><strong class="green">que + Subjuntivo</strong> — "¡Ven!" → Le pidió que <strong class="green">viniera</strong>.</td></tr>
-        </table>
-        <div class="t-rule">❓ <strong>Pytania — preguntar:</strong><br>
-          Tak/nie → <strong class="gold">preguntó si</strong> + imperfecto: ¿Vienes? → Preguntó <strong class="gold">si</strong> venía.<br>
-          Pytania szczegółowe → <strong class="gold">preguntó + zaimek pytający</strong>: ¿Dónde vives? → Preguntó <strong class="gold">dónde</strong> vivía.
+      <div class="theory-box">
+        <div class="theory-toggle" onclick="toggleTheory('imperativo-theory')">📖 Teoria — Imperativo <span id="imperativo-theory-arrow">▼</span></div>
+        <div class="theory-body" id="imperativo-theory">
+          <h3>Imperativo — tryb rozkazujący</h3>
+          <div class="t-rule"><strong class="gold">Tú twierdzący</strong> = forma él/ella: habla, come, escribe.</div>
+          <div class="t-rule"><strong class="gold">8 nieregularnych:</strong> ven, haz, di, sal, pon, ten, ve, sé.</div>
+          <div class="t-rule"><strong class="gold">Przeczący</strong> = no + subjuntivo: no habl<strong class="gold">es</strong>, no com<strong class="gold">as</strong>.</div>
+          <div class="t-rule"><strong class="gold">Usted</strong> = subjuntivo: hable, coma, escriba.</div>
+          <div class="t-rule"><strong class="gold">Zaimki:</strong> twierdzący → przyklejone na końcu: ¡Dí<strong class="gold">me</strong>lo! Przeczący → przed: ¡No <strong class="gold">me</strong> lo digas!</div>
         </div>
-        <div class="t-rule">💡 <strong>Czasowniki wprowadzające:</strong> decir que, contar que, explicar que, preguntar si/dónde/qué, pedir que + subj.</div>
       </div>
+      <div class="section-title">Quizy — Imperativo</div>
+      <div class="quiz-grid" id="imperativo-quizzes"></div>
     </div>
 
-    <div class="section-title">🔄 Voz Pasiva</div>
-    <div class="theory-box" style="border-left-color: var(--purple);">
-      <div class="theory-toggle" onclick="toggleTheory('voz-pasiva-theory')">📖 Teoria — Voz Pasiva <span id="voz-pasiva-theory-arrow">▼</span></div>
-      <div class="theory-body" id="voz-pasiva-theory">
-        <h3>Tworzenie: ser + participio</h3>
-        <div class="t-rule"><strong class="gold">Participio ZAWSZE zgadza się z podmiotem!</strong> El libro es escrito. La carta es escrita. Los libros son escritos.</div>
-        <div class="t-rule">Sprawca akcji → <strong class="gold">por</strong> + osoba: La novela fue escrita <strong class="gold">por</strong> Cervantes.</div>
-        <table>
-          <tr><th>Czas</th><th>Wzór</th><th>Przykład</th></tr>
-          <tr><td class="gold">Presente</td><td>es/son + part.</td><td>El libro es vendido en todo el mundo.</td></tr>
-          <tr><td class="gold">Indefinido</td><td>fue/fueron + part.</td><td>La ley fue aprobada ayer.</td></tr>
-          <tr><td class="gold">Imperfecto</td><td>era/eran + part.</td><td>El castillo era visitado por turistas.</td></tr>
-          <tr><td class="gold">Perfecto</td><td>ha sido / han sido</td><td>El ladrón ha sido detenido.</td></tr>
-          <tr><td class="gold">Futuro</td><td>será/serán + part.</td><td>El proyecto será terminado en mayo.</td></tr>
-        </table>
-        <div class="t-rule">⚡ <strong>Voz Pasiva vs Se Pasiva:</strong> El vino <strong class="gold">es producido</strong> en Rioja. = <strong class="gold">Se produce</strong> vino en Rioja. (codzienne użycie)</div>
+    <!-- POR vs PARA -->
+    <div class="inne-section" id="inne-porpara">
+      <div class="welcome">
+        <h2>⚖️ <em>Por vs Para</em></h2>
+        <p>Przyczyna vs cel, czas trwania vs termin, wymiana vs odbiorca.</p>
       </div>
+      <div class="theory-box">
+        <div class="theory-toggle" onclick="toggleTheory('porpara-theory')">📖 Teoria — Por vs Para <span id="porpara-theory-arrow">▼</span></div>
+        <div class="theory-body" id="porpara-theory">
+          <table>
+            <tr><th>POR</th><th>PARA</th></tr>
+            <tr><td>przyczyna (z powodu)</td><td>cel (żeby)</td></tr>
+            <tr><td>czas trwania (przez)</td><td>termin (do/na)</td></tr>
+            <tr><td>wymiana (za)</td><td>odbiorca (dla)</td></tr>
+            <tr><td>ruch przez miejsce</td><td>kierunek / cel podróży</td></tr>
+            <tr><td>środek komunikacji</td><td>opinia (moim zdaniem)</td></tr>
+          </table>
+          <div class="t-rule">💡 <strong>Trick:</strong> POR = przyczyna/przeszłość (dlaczego?) | PARA = cel/przyszłość (po co?)</div>
+        </div>
+      </div>
+      <div class="section-title">Quizy — Por vs Para</div>
+      <div class="quiz-grid" id="porpara-quizzes"></div>
     </div>
 
-    <div class="section-title">Wszystkie quizy — Inne</div>
-    <div class="quiz-grid" id="inne-quizzes"></div>
+    <!-- SER vs ESTAR -->
+    <div class="inne-section" id="inne-ser-estar">
+      <div class="welcome">
+        <h2>🔵 <em>Ser vs Estar</em></h2>
+        <p>Cechy stałe vs stany tymczasowe — i podchwytliwe przymiotniki.</p>
+      </div>
+      <div class="theory-box" style="border-left-color: var(--blue);">
+        <div class="theory-toggle" onclick="toggleTheory('ser-estar-theory')">📖 Teoria — Ser vs Estar <span id="ser-estar-theory-arrow">▼</span></div>
+        <div class="theory-body" id="ser-estar-theory">
+          <h3>SER — cechy stałe, tożsamość, definicja</h3>
+          <div class="t-rule"><strong class="gold">Pochodzenie/narodowość:</strong> Soy polaco. Es de Madrid.</div>
+          <div class="t-rule"><strong class="gold">Zawód:</strong> Es médico. Somos estudiantes.</div>
+          <div class="t-rule"><strong class="gold">Cechy trwałe:</strong> Es simpático. Es inteligente.</div>
+          <div class="t-rule"><strong class="gold">Czas/daty:</strong> Son las tres. Es lunes. Es verano.</div>
+          <h3 style="margin-top:16px;">ESTAR — stany, położenie, wyniki czynności</h3>
+          <div class="t-rule"><strong class="blue">Położenie:</strong> Estoy en casa. Madrid <strong class="blue">está</strong> en España.</div>
+          <div class="t-rule"><strong class="blue">Stan tymczasowy:</strong> Estoy cansado. Está enfermo.</div>
+          <div class="t-rule"><strong class="blue">Wynik czynności:</strong> La puerta está abierta. Está muerto.</div>
+          <div class="t-rule"><strong class="blue">Estar + gerundio:</strong> Estoy comiendo. Está trabajando.</div>
+          <h3 style="margin-top:16px;">🔴 Pułapki — ten sam przymiotnik, różne znaczenie!</h3>
+          <table>
+            <tr><th>Przymiotnik</th><th>SER</th><th>ESTAR</th></tr>
+            <tr><td class="gold">aburrido</td><td>jest nudny (z natury)</td><td>nudzi mu się (teraz)</td></tr>
+            <tr><td class="gold">malo</td><td>jest złym człowiekiem</td><td>jest chory</td></tr>
+            <tr><td class="gold">bueno</td><td>jest dobrym człowiekiem</td><td>jest smaczny/atrakcyjny</td></tr>
+            <tr><td class="gold">listo</td><td>jest bystry</td><td>jest gotowy</td></tr>
+            <tr><td class="gold">rico</td><td>jest bogaty</td><td>jest pyszny</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="section-title">Quizy — Ser vs Estar</div>
+      <div class="quiz-grid" id="ser-estar-quizzes"></div>
+    </div>
+
+    <!-- WYRAŻENIA CODZIENNE -->
+    <div class="inne-section" id="inne-expresiones">
+      <div class="welcome">
+        <h2>🗣️ <em>Wyrażenia Codzienne</em></h2>
+        <p>No me digas, menos mal, qué rollo — brzmi jak native speaker!</p>
+      </div>
+      <div class="section-title">Quizy — Wyrażenia Codzienne</div>
+      <div class="quiz-grid" id="expresiones-quizzes"></div>
+    </div>
+
+    <!-- ESTILO INDIRECTO -->
+    <div class="inne-section" id="inne-estilo">
+      <div class="welcome">
+        <h2>💬 <em>Estilo Indirecto</em></h2>
+        <p>Mowa zależna — dijo que, preguntó si, pidió que...</p>
+      </div>
+      <div class="theory-box" style="border-left-color: var(--green);">
+        <div class="theory-toggle" onclick="toggleTheory('estilo-theory')">📖 Teoria — Estilo Indirecto <span id="estilo-theory-arrow">▼</span></div>
+        <div class="theory-body" id="estilo-theory">
+          <h3>Podstawowa zasada — czasy się przesuwają wstecz</h3>
+          <table>
+            <tr><th>Estilo Directo</th><th>Estilo Indirecto</th></tr>
+            <tr><td class="gold">Presente → </td><td><strong class="green">Imperfecto</strong> — "Tengo hambre." → Dijo que <strong class="green">tenía</strong> hambre.</td></tr>
+            <tr><td class="gold">Futuro → </td><td><strong class="green">Condicional</strong> — "Vendré." → Dijo que <strong class="green">vendría</strong>.</td></tr>
+            <tr><td class="gold">Imperfecto → </td><td><strong class="green">Imperfecto</strong> (bez zmiany!)</td></tr>
+            <tr><td class="gold">Imperativo → </td><td><strong class="green">que + Subjuntivo</strong> — "¡Ven!" → Le pidió que <strong class="green">viniera</strong>.</td></tr>
+          </table>
+          <div class="t-rule">❓ <strong>Pytania:</strong> Tak/nie → <strong class="gold">preguntó si</strong> + imperfecto | Szczegółowe → <strong class="gold">preguntó + zaimek</strong></div>
+        </div>
+      </div>
+      <div class="section-title">Quizy — Estilo Indirecto</div>
+      <div class="quiz-grid" id="estilo-quizzes"></div>
+    </div>
+
+    <!-- VOZ PASIVA -->
+    <div class="inne-section" id="inne-voz-pasiva">
+      <div class="welcome">
+        <h2>🔄 <em>Voz Pasiva</em></h2>
+        <p>Ser + participio, se pasiva — strona bierna w hiszpańskim.</p>
+      </div>
+      <div class="theory-box" style="border-left-color: var(--purple);">
+        <div class="theory-toggle" onclick="toggleTheory('voz-pasiva-theory')">📖 Teoria — Voz Pasiva <span id="voz-pasiva-theory-arrow">▼</span></div>
+        <div class="theory-body" id="voz-pasiva-theory">
+          <h3>Tworzenie: ser + participio</h3>
+          <div class="t-rule"><strong class="gold">Participio zgadza się z podmiotem!</strong> El libro es escrito. La carta es escrita.</div>
+          <div class="t-rule">Sprawca → <strong class="gold">por</strong> + osoba: La novela fue escrita <strong class="gold">por</strong> Cervantes.</div>
+          <table>
+            <tr><th>Czas</th><th>Wzór</th><th>Przykład</th></tr>
+            <tr><td class="gold">Presente</td><td>es/son + part.</td><td>El libro es vendido.</td></tr>
+            <tr><td class="gold">Indefinido</td><td>fue/fueron + part.</td><td>La ley fue aprobada.</td></tr>
+            <tr><td class="gold">Perfecto</td><td>ha sido / han sido</td><td>El ladrón ha sido detenido.</td></tr>
+          </table>
+          <div class="t-rule">⚡ <strong>Se Pasiva:</strong> El vino <strong class="gold">es producido</strong> = <strong class="gold">Se produce</strong> vino. (bardziej naturalne)</div>
+        </div>
+      </div>
+      <div class="section-title">Quizy — Voz Pasiva</div>
+      <div class="quiz-grid" id="voz-pasiva-quizzes"></div>
+    </div>
+
   </div>
 
   <!-- KONSTRUKCJE -->
@@ -836,11 +892,11 @@
 </script>
 
 <!-- Data -->
-<script src="quizzes.js"></script>
-<script src="fiszki.js"></script>
+<script src="quizzes.js?v=3"></script>
+<script src="fiszki.js?v=3"></script>
 
 <!-- App -->
-<script src="ui.js"></script>
-<script src="logic.js"></script>
+<script src="ui.js?v=3"></script>
+<script src="logic.js?v=3"></script>
 </body>
 </html>

@@ -90,6 +90,8 @@ nav {
 .subnav2-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 .czas-section { display: none; }
 .czas-section.active { display: block; }
+.inne-section { display: none; }
+.inne-section.active { display: block; }
 
 .subnav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
@@ -332,9 +334,10 @@ nav {
 .fiszki-stat { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:10px 16px; font-size:0.85rem; }
 
 /* FLIP CARD */
-.flip-card { perspective: 1000px; width:100%; min-height:320px; cursor:pointer; margin-bottom:24px; }
+.flip-card { perspective: 1000px; width:100%; min-height:320px; cursor:pointer; margin-bottom:24px; position:relative; }
 .flip-card-inner { position:relative; width:100%; min-height:320px; transition:transform 0.55s cubic-bezier(.4,2,.55,.44); transform-style:preserve-3d; }
 .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
 .flip-card-front, .flip-card-back { position:absolute; width:100%; min-height:320px; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:16px; padding:32px 36px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; }
 .flip-card-front { background:var(--card); border:1px solid var(--border); }
 .flip-card-back { background:var(--card); border:1px solid var(--gold); transform:rotateY(180deg); }
+#deck-btns { position:relative; z-index:10; }

@@ -253,7 +253,9 @@ function showPage(id) {
   const subnav = document.getElementById('grammar-subnav');
   subnav.classList.toggle('visible', id === 'grammar');
   const czasyNav = document.getElementById('czasy-subnav');
-  if (czasyNav) czasyNav.classList.toggle('visible', id === 'grammar');
+  if (czasyNav) czasyNav.classList.toggle('visible', id === 'grammar' && currentGrammarSection === 'czasy');
+  const inneNav = document.getElementById('inne-subnav');
+  if (inneNav) inneNav.classList.toggle('visible', id === 'grammar' && currentGrammarSection === 'inne');
   if (id === 'stats') renderStats();
   if (id === 'vocab') renderVocab();
   if (id === 'dashboard') renderDashboard();
@@ -268,6 +270,9 @@ function showGrammarSection(section, btn) {
   // Show/hide czasy subnav
   const czasyNav = document.getElementById('czasy-subnav');
   czasyNav.classList.toggle('visible', section === 'czasy');
+  // Show/hide inne subnav
+  const inneNav = document.getElementById('inne-subnav');
+  if (inneNav) inneNav.classList.toggle('visible', section === 'inne');
   // Force-render quizzes for this section
   const allQuizzes = [...grammarQuizzes, ...vocabQuizzes];
   const ids = quizSections[section] || [];
@@ -283,11 +288,36 @@ return q ? renderQuizCard(q) : '';
 function showCzasSection(section, btn) {
   document.querySelectorAll('.czas-section').forEach(p => p.classList.remove('active'));
   document.getElementById('czas-' + section).classList.add('active');
-  document.querySelectorAll('.subnav2-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('#czasy-subnav .subnav2-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   // Always re-render quizzes
   const allQuizzes = [...grammarQuizzes, ...vocabQuizzes];
   const ids = quizSections[section] || [];
+  const el = document.getElementById(section + '-quizzes');
+  if (el) {
+    el.innerHTML = ids.map(id => {
+      const q = allQuizzes.find(x => x.id === id);
+return q ? renderQuizCard(q) : '';
+    }).join('');
+  }
+}
+
+function showInneSection(section, btn) {
+  document.querySelectorAll('.inne-section').forEach(p => p.classList.remove('active'));
+  document.getElementById('inne-' + section).classList.add('active');
+  document.querySelectorAll('#inne-subnav .subnav2-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  // Render quizzes for this inne sub-section
+  const allQuizzes = [...grammarQuizzes, ...vocabQuizzes];
+  const sectionMap = {
+    'imperativo': ['imperativo'],
+    'porpara': ['porpara'],
+    'ser-estar': ['ser-estar','ser-estar-2','ser-estar-3'],
+    'expresiones': ['expresiones-cotidianas'],
+    'estilo': ['estilo-indirecto','estilo-indirecto-2','estilo-indirecto-3'],
+    'voz-pasiva': ['voz-pasiva','voz-pasiva-2']
+  };
+  const ids = sectionMap[section] || [];
   const el = document.getElementById(section + '-quizzes');
   if (el) {
     el.innerHTML = ids.map(id => {
@@ -459,8 +489,11 @@ function showDeckCard() {
 
 function flipDeckCard() {
   const card = document.getElementById('deck-card');
-  const flipped = card.classList.toggle('flipped');
-  document.getElementById('deck-btns').style.display = flipped ? 'block' : 'none';
+  // Only allow flip to back (not back to front via click)
+  if (!card.classList.contains('flipped')) {
+    card.classList.add('flipped');
+    document.getElementById('deck-btns').style.display = 'block';
+  }
 }
 
 function deckMark(status) {
