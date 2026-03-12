@@ -639,7 +639,7 @@
   <!-- VOCAB SUB-TABS -->
   <div class="vocab-subtabs">
     <button class="vocab-subtab active" onclick="showVocabTab('slownik',this)">📚 Słownik</button>
-    <button class="vocab-subtab" onclick="showVocabTab('fiszki',this)">🃏 Fiszki B1 <span style="background:var(--gold);color:#000;padding:1px 7px;border-radius:10px;font-size:0.75rem;margin-left:4px;">50</span></button>
+    <button class="vocab-subtab" onclick="showVocabTab('fiszki',this)">🃏 Fiszki B1 <span style="background:var(--gold);color:#000;padding:1px 7px;border-radius:10px;font-size:0.75rem;margin-left:4px;">150</span></button>
   </div>
 
   <!-- SLOWNIK -->
@@ -665,7 +665,7 @@
       <p>100 słówek w 10 kategoriach — przykładowe zdanie i porada dla każdego słówka.</p>
     </div>
     <div class="vocab-filters" style="margin-bottom:20px;">
-      <button class="vf-btn active" onclick="setFiszkiCat('all',this)">Wszystkie (100)</button>
+      <button class="vf-btn active" onclick="setFiszkiCat('all',this)">Wszystkie (150)</button>
       <button class="vf-btn" onclick="setFiszkiCat('Praca i kariera',this)">💼 Praca</button>
       <button class="vf-btn" onclick="setFiszkiCat('Zdrowie i ciało',this)">🏥 Zdrowie</button>
       <button class="vf-btn" onclick="setFiszkiCat('Podróże i transport',this)">✈️ Podróże</button>
@@ -676,6 +676,9 @@
       <button class="vf-btn" onclick="setFiszkiCat('Nauka i edukacja',this)">📚 Edukacja</button>
       <button class="vf-btn" onclick="setFiszkiCat('Technologia i media',this)">💻 Tech</button>
       <button class="vf-btn" onclick="setFiszkiCat('Natura i środowisko',this)">🌿 Natura</button>
+      <button class="vf-btn" onclick="setFiszkiCat('Zakupy i usługi',this)">🛒 Zakupy</button>
+      <button class="vf-btn" onclick="setFiszkiCat('Sport i aktywność',this)">⚽ Sport</button>
+      <button class="vf-btn" onclick="setFiszkiCat('Rozrywka i kultura',this)">🎭 Rozrywka</button>
     </div>
     <!-- SAVE/LOAD STATE -->
     <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center;flex-wrap:wrap;">
@@ -892,11 +895,11 @@
 </script>
 
 <!-- Data -->
-<script src="quizzes.js?v=4"></script>
-<script src="fiszki.js?v=4"></script>
+<script src="quizzes.js?v=5"></script>
+<script src="fiszki.js?v=5"></script>
 
 <!-- App -->
-<script src="ui.js?v=4"></script>
-<script src="logic.js?v=4"></script>
+<script src="ui.js?v=5"></script>
+<script src="logic.js?v=5"></script>
 </body>
 </html>
