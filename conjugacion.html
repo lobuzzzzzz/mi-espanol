@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Conjugación Drill</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#0d1117;color:#e6edf3;min-height:100vh;min-height:100dvh;-webkit-tap-highlight-color:transparent;}
+.hdr{background:#161b22;border-bottom:1px solid #21262d;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
+.hdr h1{font-size:20px;font-weight:700;}
+.hdr .sub{font-size:12px;color:#8b949e;margin-top:2px;}
+.hdr-btns{display:flex;gap:10px;align-items:center;}
+.hdr-btns button{background:none;border:1px solid #30363d;color:#8b949e;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;}
+.streak{font-size:13px;color:#f0883e;font-weight:600;}
+.panel{padding:16px 20px;background:#161b22;border-bottom:1px solid #21262d;}
+.panel-title{font-size:14px;font-weight:600;margin-bottom:12px;color:#c9d1d9;}
+.mood-group{margin-bottom:14px;}
+.mood-btn{border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.06em;display:inline-block;}
+.tense-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.tense-item{display:flex;flex-direction:column;gap:2px;}
+.tense-btn{border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer;}
+.tense-ex{font-size:10px;color:#6e7681;padding-left:2px;max-width:160px;}
+.start-btn{margin-top:8px;background:#238636;border:none;color:#fff;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;width:100%;}
+.err-panel{max-height:300px;overflow-y:auto;}
+.err-item{background:#1c1215;border:1px solid #3d1f28;border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:13px;}
+.err-meta{color:#8b949e;margin-bottom:4px;}
+.err-wrong{color:#f85149;text-decoration:line-through;}
+.err-right{color:#3fb950;font-weight:600;}
+.drill{padding:28px 20px;max-width:500px;margin:0 auto;}
+.badge{display:inline-block;border-radius:20px;padding:5px 16px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;}
+.tense-name{font-size:18px;font-weight:600;margin-top:8px;}
+.tense-hint{font-size:13px;color:#8b949e;margin-top:6px;font-style:italic;}
+.tense-hint-pl{font-size:12px;color:#6e7681;margin-top:2px;}
+.card{border-radius:16px;padding:28px 20px;text-align:center;margin-bottom:24px;}
+.card-verb{font-size:36px;font-weight:800;letter-spacing:-0.03em;color:#fff;margin-bottom:4px;}
+.card-tr{font-size:14px;color:#8b949e;margin-bottom:10px;font-style:italic;}
+.card-person{font-size:20px;font-weight:500;}
+#ans{width:100%;padding:14px 16px;font-size:20px;font-weight:500;border-radius:12px;color:#e6edf3;outline:none;margin-bottom:12px;border:2px solid #30363d;background:#161b22;}
+#ans.ok{background:#0d2818;border-color:#3fb950;}
+#ans.bad{background:#1c1215;border-color:#f85149;}
+.fb-ok{text-align:center;color:#3fb950;font-size:18px;font-weight:700;margin-bottom:16px;}
+.fb-bad{text-align:center;margin-bottom:16px;}
+.fb-bad-label{color:#f85149;font-size:15px;margin-bottom:6px;}
+.fb-bad-ans{font-size:22px;font-weight:700;color:#3fb950;}
+.next-btn{margin-top:14px;background:#21262d;border:1px solid #30363d;color:#c9d1d9;border-radius:10px;padding:10px 28px;font-size:15px;font-weight:600;cursor:pointer;}
+.check-btn{width:100%;padding:14px;font-size:16px;font-weight:700;border:none;border-radius:12px;cursor:pointer;}
+.accent-row{display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap;}
+.accent-btn{background:#21262d;border:1px solid #30363d;color:#c9d1d9;border-radius:8px;width:40px;height:40px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.skip{text-align:center;margin-top:20px;}
+.skip button{background:none;border:none;color:#484f58;font-size:13px;cursor:pointer;text-decoration:underline;}
+.clear-btn{margin-top:10px;background:none;border:1px solid #3d1f28;color:#f85149;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;}
+.stats-bar{display:flex;gap:16px;padding:12px 20px;background:#161b22;border-bottom:1px solid #21262d;font-size:12px;color:#8b949e;flex-wrap:wrap;}
+.stats-bar span{color:#c9d1d9;font-weight:600;}
+.hidden{display:none;}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <!-- HEADER -->
+  <div class="hdr">
+    <div><h1>Conjugación</h1><div class="sub" id="hdr-score">¡Vamos!</div></div>
+    <div class="hdr-btns">
+      <span class="streak hidden" id="streak-el"></span>
+      <button id="btn-err" onclick="showView('errors')">Błędy (0)</button>
+      <button onclick="showView('settings')">⚙</button>
+    </div>
+  </div>
+  <div class="stats-bar hidden" id="stats-bar"></div>
+
+  <!-- SETTINGS VIEW -->
+  <div class="panel hidden" id="view-settings"></div>
+
+  <!-- ERRORS VIEW -->
+  <div class="panel err-panel hidden" id="view-errors"></div>
+
+  <!-- DRILL VIEW -->
+  <div class="drill" id="view-drill">
+    <div style="text-align:center;margin-bottom:24px">
+      <span class="badge" id="dr-mood"></span>
+      <div class="tense-name" id="dr-tname"></div>
+      <div class="tense-hint" id="dr-hex"></div>
+      <div class="tense-hint-pl" id="dr-hpl"></div>
+    </div>
+    <div class="card" id="dr-card">
+      <div class="card-verb" id="dr-verb"></div>
+      <div class="card-tr" id="dr-tr"></div>
+      <div class="card-person" id="dr-pers"></div>
+    </div>
+    <input id="ans" type="text" placeholder="tu respuesta..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    <div id="dr-feedback"></div>
+    <div id="dr-action"></div>
+    <div class="accent-row" id="accent-row"></div>
+    <div class="skip"><button onclick="gen()">Pomiń →</button></div>
+  </div>
+</div>
+
+<script>
+// ============ CONJUGATION ENGINE ============
+var HABER={pres:["he","has","ha","hemos","habéis","han"],impf:["había","habías","había","habíamos","habíais","habían"],fut:["habré","habrás","habrá","habremos","habréis","habrán"],cond:["habría","habrías","habría","habríamos","habríais","habrían"],presSub:["haya","hayas","haya","hayamos","hayáis","hayan"],impfSub:["hubiera","hubieras","hubiera","hubiéramos","hubierais","hubieran"]};
+var ACC={a:"á",e:"é",i:"í",o:"ó",u:"ú",á:"á",é:"é",í:"í",ó:"ó",ú:"ú"};
+function accentLast(s){for(var i=s.length-1;i>=0;i--)if(ACC[s[i]])return s.slice(0,i)+ACC[s[i]]+s.slice(i+1);return s;}
+
+var VD={
+hablar:{t:"ar",tr:"mówić"},comer:{t:"er",tr:"jeść"},vivir:{t:"ir",tr:"żyć/mieszkać"},
+ser:{t:"er",tr:"być (stały)",pres:"soy,eres,es,somos,sois,son",pret:"fui,fuiste,fue,fuimos,fuisteis,fueron",impf:"era,eras,era,éramos,erais,eran",presSub:"sea,seas,sea,seamos,seáis,sean",part:"sido",impTu:"sé"},
+estar:{t:"ar",tr:"być (chwilowy)",pres:"estoy,estás,está,estamos,estáis,están",pret:"estuve,estuviste,estuvo,estuvimos,estuvisteis,estuvieron",presSub:"esté,estés,esté,estemos,estéis,estén",part:"estado"},
+tener:{t:"er",tr:"mieć",pres:"tengo,tienes,tiene,tenemos,tenéis,tienen",pret:"tuve,tuviste,tuvo,tuvimos,tuvisteis,tuvieron",presSub:"tenga,tengas,tenga,tengamos,tengáis,tengan",futS:"tendr",part:"tenido",impTu:"ten"},
+hacer:{t:"er",tr:"robić",pres:"hago,haces,hace,hacemos,hacéis,hacen",pret:"hice,hiciste,hizo,hicimos,hicisteis,hicieron",presSub:"haga,hagas,haga,hagamos,hagáis,hagan",futS:"har",part:"hecho",impTu:"haz"},
+ir:{t:"ir",tr:"iść/jechać",pres:"voy,vas,va,vamos,vais,van",pret:"fui,fuiste,fue,fuimos,fuisteis,fueron",impf:"iba,ibas,iba,íbamos,ibais,iban",presSub:"vaya,vayas,vaya,vayamos,vayáis,vayan",part:"ido",impTu:"ve",impVos:"id"},
+poder:{t:"er",tr:"móc",pres:"puedo,puedes,puede,podemos,podéis,pueden",pret:"pude,pudiste,pudo,pudimos,pudisteis,pudieron",presSub:"pueda,puedas,pueda,podamos,podáis,puedan",futS:"podr",part:"podido"},
+querer:{t:"er",tr:"chcieć",pres:"quiero,quieres,quiere,queremos,queréis,quieren",pret:"quise,quisiste,quiso,quisimos,quisisteis,quisieron",presSub:"quiera,quieras,quiera,queramos,queráis,quieran",futS:"querr",part:"querido"},
+decir:{t:"ir",tr:"mówić/powiedzieć",pres:"digo,dices,dice,decimos,decís,dicen",pret:"dije,dijiste,dijo,dijimos,dijisteis,dijeron",presSub:"diga,digas,diga,digamos,digáis,digan",futS:"dir",part:"dicho",impTu:"di"},
+saber:{t:"er",tr:"wiedzieć",pres:"sé,sabes,sabe,sabemos,sabéis,saben",pret:"supe,supiste,supo,supimos,supisteis,supieron",presSub:"sepa,sepas,sepa,sepamos,sepáis,sepan",futS:"sabr",part:"sabido"},
+poner:{t:"er",tr:"kłaść/stawiać",pres:"pongo,pones,pone,ponemos,ponéis,ponen",pret:"puse,pusiste,puso,pusimos,pusisteis,pusieron",presSub:"ponga,pongas,ponga,pongamos,pongáis,pongan",futS:"pondr",part:"puesto",impTu:"pon"},
+venir:{t:"ir",tr:"przychodzić",pres:"vengo,vienes,viene,venimos,venís,vienen",pret:"vine,viniste,vino,vinimos,vinisteis,vinieron",presSub:"venga,vengas,venga,vengamos,vengáis,vengan",futS:"vendr",part:"venido",impTu:"ven"},
+salir:{t:"ir",tr:"wychodzić",pres:"salgo,sales,sale,salimos,salís,salen",presSub:"salga,salgas,salga,salgamos,salgáis,salgan",futS:"saldr",part:"salido",impTu:"sal"},
+dar:{t:"ar",tr:"dawać",pres:"doy,das,da,damos,dais,dan",pret:"di,diste,dio,dimos,disteis,dieron",presSub:"dé,des,dé,demos,deis,den",part:"dado"},
+ver:{t:"er",tr:"widzieć",pres:"veo,ves,ve,vemos,veis,ven",pret:"vi,viste,vio,vimos,visteis,vieron",impf:"veía,veías,veía,veíamos,veíais,veían",presSub:"vea,veas,vea,veamos,veáis,vean",part:"visto"},
+conocer:{t:"er",tr:"znać",pres:"conozco,conoces,conoce,conocemos,conocéis,conocen",presSub:"conozca,conozcas,conozca,conozcamos,conozcáis,conozcan",part:"conocido"},
+pensar:{t:"ar",tr:"myśleć",pres:"pienso,piensas,piensa,pensamos,pensáis,piensan",presSub:"piense,pienses,piense,pensemos,penséis,piensen"},
+dormir:{t:"ir",tr:"spać",pres:"duermo,duermes,duerme,dormimos,dormís,duermen",pret:"dormí,dormiste,durmió,dormimos,dormisteis,durmieron",presSub:"duerma,duermas,duerma,durmamos,durmáis,duerman",part:"dormido"},
+sentir:{t:"ir",tr:"czuć",pres:"siento,sientes,siente,sentimos,sentís,sienten",pret:"sentí,sentiste,sintió,sentimos,sentisteis,sintieron",presSub:"sienta,sientas,sienta,sintamos,sintáis,sientan",part:"sentido"},
+pedir:{t:"ir",tr:"prosić",pres:"pido,pides,pide,pedimos,pedís,piden",pret:"pedí,pediste,pidió,pedimos,pedisteis,pidieron",presSub:"pida,pidas,pida,pidamos,pidáis,pidan",part:"pedido"},
+jugar:{t:"ar",tr:"grać",pres:"juego,juegas,juega,jugamos,jugáis,juegan",presSub:"juegue,juegues,juegue,juguemos,juguéis,jueguen",part:"jugado"},
+volver:{t:"er",tr:"wracać",pres:"vuelvo,vuelves,vuelve,volvemos,volvéis,vuelven",presSub:"vuelva,vuelvas,vuelva,volvamos,volváis,vuelvan",part:"vuelto"},
+morir:{t:"ir",tr:"umierać",pres:"muero,mueres,muere,morimos,morís,mueren",pret:"morí,moriste,murió,morimos,moristeis,murieron",presSub:"muera,mueras,muera,muramos,muráis,mueran",part:"muerto"},
+seguir:{t:"ir",tr:"kontynuować",pres:"sigo,sigues,sigue,seguimos,seguís,siguen",pret:"seguí,seguiste,siguió,seguimos,seguisteis,siguieron",presSub:"siga,sigas,siga,sigamos,sigáis,sigan",part:"seguido"},
+empezar:{t:"ar",tr:"zaczynać",pres:"empiezo,empiezas,empieza,empezamos,empezáis,empiezan",presSub:"empiece,empieces,empiece,empecemos,empecéis,empiecen",part:"empezado"},
+entender:{t:"er",tr:"rozumieć",pres:"entiendo,entiendes,entiende,entendemos,entendéis,entienden",presSub:"entienda,entiendas,entienda,entendamos,entendáis,entiendan",part:"entendido"},
+perder:{t:"er",tr:"tracić/przegrywać",pres:"pierdo,pierdes,pierde,perdemos,perdéis,pierden",presSub:"pierda,pierdas,pierda,perdamos,perdáis,pierdan",part:"perdido"},
+cerrar:{t:"ar",tr:"zamykać",pres:"cierro,cierras,cierra,cerramos,cerráis,cierran",presSub:"cierre,cierres,cierre,cerremos,cerréis,cierren",part:"cerrado"},
+encontrar:{t:"ar",tr:"znajdować",pres:"encuentro,encuentras,encuentra,encontramos,encontráis,encuentran",presSub:"encuentre,encuentres,encuentre,encontremos,encontréis,encuentren",part:"encontrado"},
+llegar:{t:"ar",tr:"przybywać",part:"llegado"},
+llevar:{t:"ar",tr:"nosić/zabierać",part:"llevado"},
+creer:{t:"er",tr:"wierzyć",pret:"creí,creíste,creyó,creímos,creísteis,creyeron",part:"creído"},
+leer:{t:"er",tr:"czytać",pret:"leí,leíste,leyó,leímos,leísteis,leyeron",part:"leído"},
+oír:{t:"ir",tr:"słyszeć",pres:"oigo,oyes,oye,oímos,oís,oyen",pret:"oí,oíste,oyó,oímos,oísteis,oyeron",presSub:"oiga,oigas,oiga,oigamos,oigáis,oigan",part:"oído",impTu:"oye"},
+traer:{t:"er",tr:"przynosić",pres:"traigo,traes,trae,traemos,traéis,traen",pret:"traje,trajiste,trajo,trajimos,trajisteis,trajeron",presSub:"traiga,traigas,traiga,traigamos,traigáis,traigan",part:"traído"},
+caer:{t:"er",tr:"padać/upadać",pres:"caigo,caes,cae,caemos,caéis,caen",pret:"caí,caíste,cayó,caímos,caísteis,cayeron",presSub:"caiga,caigas,caiga,caigamos,caigáis,caigan",part:"caído"},
+conducir:{t:"ir",tr:"prowadzić (auto)",pres:"conduzco,conduces,conduce,conducimos,conducís,conducen",pret:"conduje,condujiste,condujo,condujimos,condujisteis,condujeron",presSub:"conduzca,conduzcas,conduzca,conduzcamos,conduzcáis,conduzcan",part:"conducido"},
+producir:{t:"ir",tr:"produkować",pres:"produzco,produces,produce,producimos,producís,producen",pret:"produje,produjiste,produjo,produjimos,produjisteis,produjeron",presSub:"produzca,produzcas,produzca,produzcamos,produzcáis,produzcan",part:"producido"},
+construir:{t:"ir",tr:"budować",pres:"construyo,construyes,construye,construimos,construís,construyen",pret:"construí,construiste,construyó,construimos,construisteis,construyeron",presSub:"construya,construyas,construya,construyamos,construyáis,construyan",part:"construido"},
+huir:{t:"ir",tr:"uciekać",pres:"huyo,huyes,huye,huimos,huís,huyen",pret:"huí,huiste,huyó,huimos,huisteis,huyeron",presSub:"huya,huyas,huya,huyamos,huyáis,huyan",part:"huido"},
+elegir:{t:"ir",tr:"wybierać",pres:"elijo,eliges,elige,elegimos,elegís,eligen",pret:"elegí,elegiste,eligió,elegimos,elegisteis,eligieron",presSub:"elija,elijas,elija,elijamos,elijáis,elijan",part:"elegido"},
+medir:{t:"ir",tr:"mierzyć",pres:"mido,mides,mide,medimos,medís,miden",pret:"medí,mediste,midió,medimos,medisteis,midieron",presSub:"mida,midas,mida,midamos,midáis,midan",part:"medido"},
+repetir:{t:"ir",tr:"powtarzać",pres:"repito,repites,repite,repetimos,repetís,repiten",pret:"repetí,repetiste,repitió,repetimos,repetisteis,repitieron",presSub:"repita,repitas,repita,repitamos,repitáis,repitan",part:"repetido"},
+servir:{t:"ir",tr:"służyć/podawać",pres:"sirvo,sirves,sirve,servimos,servís,sirven",pret:"serví,serviste,sirvió,servimos,servisteis,sirvieron",presSub:"sirva,sirvas,sirva,sirvamos,sirváis,sirvan",part:"servido"},
+mentir:{t:"ir",tr:"kłamać",pres:"miento,mientes,miente,mentimos,mentís,mienten",pret:"mentí,mentiste,mintió,mentimos,mentisteis,mintieron",presSub:"mienta,mientas,mienta,mintamos,mintáis,mientan",part:"mentido"},
+preferir:{t:"ir",tr:"preferować/woleć",pres:"prefiero,prefieres,prefiere,preferimos,preferís,prefieren",pret:"preferí,preferiste,prefirió,preferimos,preferisteis,prefirieron",presSub:"prefiera,prefieras,prefiera,prefiramos,prefiráis,prefieran",part:"preferido"},
+sugerir:{t:"ir",tr:"sugerować",pres:"sugiero,sugieres,sugiere,sugerimos,sugerís,sugieren",pret:"sugerí,sugeriste,sugirió,sugerimos,sugeristeis,sugirieron",presSub:"sugiera,sugieras,sugiera,sugiramos,sugiráis,sugieran",part:"sugerido"},
+convertir:{t:"ir",tr:"zamieniać/konwertować",pres:"convierto,conviertes,convierte,convertimos,convertís,convierten",pret:"convertí,convertiste,convirtió,convertimos,convertisteis,convirtieron",presSub:"convierta,conviertas,convierta,convirtamos,convirtáis,conviertan",part:"convertido"},
+};
+
+var RE={pres:{ar:["o","as","a","amos","áis","an"],er:["o","es","e","emos","éis","en"],ir:["o","es","e","imos","ís","en"]},pret:{ar:["é","aste","ó","amos","asteis","aron"],er:["í","iste","ió","imos","isteis","ieron"],ir:["í","iste","ió","imos","isteis","ieron"]},impf:{ar:["aba","abas","aba","ábamos","abais","aban"],er:["ía","ías","ía","íamos","íais","ían"],ir:["ía","ías","ía","íamos","íais","ían"]},presSub:{ar:["e","es","e","emos","éis","en"],er:["a","as","a","amos","áis","an"],ir:["a","as","a","amos","áis","an"]}};
+var FE=["é","ás","á","emos","éis","án"],COE=["ía","ías","ía","íamos","íais","ían"];
+
+function gS(v){return v.slice(0,-2);}
+function gT(v){var d=VD[v];return d?d.t:v.endsWith("ar")?"ar":v.endsWith("er")?"er":"ir";}
+function gP(v){var d=VD[v];if(d&&d.part)return d.part;var t=gT(v),s=gS(v);return t==="ar"?s+"ado":s+"ido";}
+
+function conj(v,tid,pi){
+  var d=VD[v]||{t:gT(v),tr:"?"},tp=d.t,st=gS(v);
+  if(tid==="preterito_perfecto")return HABER.pres[pi]+" "+gP(v);
+  if(tid==="preterito_pluscuamperfecto")return HABER.impf[pi]+" "+gP(v);
+  if(tid==="futuro_compuesto")return HABER.fut[pi]+" "+gP(v);
+  if(tid==="condicional_compuesto")return HABER.cond[pi]+" "+gP(v);
+  if(tid==="perfecto_sub")return HABER.presSub[pi]+" "+gP(v);
+  if(tid==="pluscuamperfecto_sub")return HABER.impfSub[pi]+" "+gP(v);
+  if(tid==="presente_ind"){if(d.pres)return d.pres.split(",")[pi];return st+RE.pres[tp][pi];}
+  if(tid==="preterito_indefinido"){if(d.pret)return d.pret.split(",")[pi];return st+RE.pret[tp][pi];}
+  if(tid==="preterito_imperfecto"){if(d.impf)return d.impf.split(",")[pi];return st+RE.impf[tp][pi];}
+  if(tid==="futuro_simple")return(d.futS||v)+FE[pi];
+  if(tid==="condicional_simple")return(d.futS||v)+COE[pi];
+  if(tid==="presente_sub"){if(d.presSub)return d.presSub.split(",")[pi];return st+RE.presSub[tp][pi];}
+  if(tid==="imperfecto_sub"){
+    var p3=d.pret?d.pret.split(",")[5]:st+RE.pret[tp][5];
+    var iS=p3.slice(0,-3);var ends=["ra","ras","ra","ramos","rais","ran"];
+    if(pi===3)return accentLast(iS)+"ramos";return iS+ends[pi];
+  }
+  if(tid==="futuro_sub"){
+    var p3f=d.pret?d.pret.split(",")[5]:st+RE.pret[tp][5];
+    var fS=p3f.slice(0,-3);var fe=["re","res","re","remos","reis","ren"];
+    if(pi===3)return accentLast(fS)+"remos";return fS+fe[pi];
+  }
+  if(tid==="imperativo_af"){
+    var sf=d.presSub?d.presSub.split(","):null;
+    if(!sf){sf=[];for(var s=0;s<6;s++)sf.push(st+RE.presSub[tp][s]);}
+    if(pi===0){if(d.impTu)return d.impTu;var pf=d.pres?d.pres.split(","):null;return pf?pf[2]:st+RE.pres[tp][2];}
+    if(pi===1)return sf[2];if(pi===2)return sf[3];
+    if(pi===3){if(d.impVos)return d.impVos;return v.slice(0,-1)+"d";}
+    if(pi===4)return sf[5];
+  }
+  if(tid==="imperativo_neg"){
+    var sn=d.presSub?d.presSub.split(","):null;
+    if(!sn){sn=[];for(var sn2=0;sn2<6;sn2++)sn.push(st+RE.presSub[tp][sn2]);}
+    return"no "+sn[[1,2,3,4,5][pi]];
+  }
+  return"?";
+}
+
+// ============ TENSES & PERSONS ============
+var TENSES=[
+{id:"presente_ind",name:"Presente",mood:"Indicativo",ex:"Hablo español|Mówię po hiszpańsku"},
+{id:"preterito_indefinido",name:"Pretérito Indefinido",mood:"Indicativo",ex:"Ayer comí pizza|Wczoraj zjadłem pizzę"},
+{id:"preterito_imperfecto",name:"Pretérito Imperfecto",mood:"Indicativo",ex:"De niño jugaba mucho|Jako dziecko dużo grałem"},
+{id:"preterito_perfecto",name:"Pretérito Perfecto",mood:"Indicativo",ex:"Hoy he dormido bien|Dziś dobrze spałem"},
+{id:"preterito_pluscuamperfecto",name:"Pretérito Pluscuamperfecto",mood:"Indicativo",ex:"Ya había salido|Już wyszedłem (wcześniej)"},
+{id:"futuro_simple",name:"Futuro Simple",mood:"Indicativo",ex:"Mañana iré al gym|Jutro pójdę na siłownię"},
+{id:"condicional_simple",name:"Condicional Simple",mood:"Indicativo",ex:"Yo comería más|Ja bym jadł więcej"},
+{id:"futuro_compuesto",name:"Futuro Compuesto",mood:"Indicativo",ex:"Habrá llegado ya|Pewnie już dotarł"},
+{id:"condicional_compuesto",name:"Condicional Compuesto",mood:"Indicativo",ex:"Habría ido contigo|Byłbym poszedł z tobą"},
+{id:"presente_sub",name:"Presente",mood:"Subjuntivo",ex:"Quiero que vengas|Chcę żebyś przyszedł"},
+{id:"imperfecto_sub",name:"Imperfecto",mood:"Subjuntivo",ex:"Si tuviera dinero...|Gdybym miał pieniądze..."},
+{id:"perfecto_sub",name:"Perfecto",mood:"Subjuntivo",ex:"Espero que hayas comido|Mam nadzieję, że zjadłeś"},
+{id:"pluscuamperfecto_sub",name:"Pluscuamperfecto",mood:"Subjuntivo",ex:"Si hubiera sabido...|Gdybym był wiedział..."},
+{id:"futuro_sub",name:"Futuro",mood:"Subjuntivo",ex:"Donde fuere...|Gdziekolwiek pójdzie... (archaiczny)"},
+{id:"imperativo_af",name:"Imperativo Afirmativo",mood:"Imperativo",ex:"¡Habla! ¡Come!|Mów! Jedz!"},
+{id:"imperativo_neg",name:"Imperativo Negativo",mood:"Imperativo",ex:"¡No hables!|Nie mów!"},
+];
+var PERSONS=[{l:"yo"},{l:"tú"},{l:"él/ella/usted"},{l:"nosotros"},{l:"vosotros"},{l:"ellos/ustedes"}];
+var IMP_P=[{l:"tú"},{l:"usted"},{l:"nosotros"},{l:"vosotros"},{l:"ustedes"}];
+var VERBS=Object.keys(VD);
+var MCOL={Indicativo:{bg:"#1a3a4a",ac:"#4fc3f7",lt:"#e1f5fe"},Subjuntivo:{bg:"#3a1a4a",ac:"#ce93d8",lt:"#f3e5f5"},Imperativo:{bg:"#4a3a1a",ac:"#ffb74d",lt:"#fff3e0"}};
+
+// ============ STATE ============
+var actT=TENSES.map(function(t){return t.id;});
+var cur=null,status="idle",correctAns="",score={c:0,w:0},errs=[],streak=0;
+
+function load(){try{var s=localStorage.getItem("conj2");if(s){var p=JSON.parse(s);errs=p.e||[];score=p.s||{c:0,w:0};actT=p.t||actT;}}catch(e){}}
+function save(){try{localStorage.setItem("conj2",JSON.stringify({e:errs,s:score,t:actT}));}catch(e){}}
+
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+
+// ============ DOM REFS ============
+var $=function(id){return document.getElementById(id);};
+
+// ============ ACCENT BUTTONS (one-time setup) ============
+function setupAccents(){
+  var row=$("accent-row");row.innerHTML="";
+  ["á","é","í","ó","ú","ñ","ü"].forEach(function(ch){
+    var b=document.createElement("button");
+    b.className="accent-btn";b.textContent=ch;
+    b.addEventListener("click",function(e){
+      e.preventDefault();
+      var inp=$("ans");
+      var pos=inp.selectionStart||inp.value.length;
+      inp.value=inp.value.slice(0,pos)+ch+inp.value.slice(pos);
+      inp.focus();
+      inp.setSelectionRange(pos+1,pos+1);
+    });
+    row.appendChild(b);
+  });
+}
+
+// ============ INPUT HANDLER (no re-render!) ============
+function setupInput(){
+  var inp=$("ans");
+  inp.addEventListener("keydown",function(e){
+    if(e.key==="Enter"){
+      if(status==="wrong")gen();
+      else if(status==="idle")checkAns();
+    }
+  });
+}
+
+// ============ VIEWS ============
+function showView(v){
+  $("view-drill").classList.add("hidden");
+  $("view-settings").classList.add("hidden");
+  $("view-errors").classList.add("hidden");
+  if(v==="settings"){renderSettings();$("view-settings").classList.remove("hidden");}
+  else if(v==="errors"){renderErrors();$("view-errors").classList.remove("hidden");}
+  else{$("view-drill").classList.remove("hidden");}
+}
+
+function updateHeader(){
+  var total=score.c+score.w;
+  var pct=total>0?Math.round(score.c/total*100):0;
+  $("hdr-score").textContent=total>0?pct+"% · "+score.c+"✓ "+score.w+"✗":"¡Vamos!";
+  $("btn-err").textContent="Błędy ("+errs.length+")";
+  var se=$("streak-el");
+  if(streak>=3){se.textContent="🔥 "+streak;se.classList.remove("hidden");}
+  else se.classList.add("hidden");
+  var sb=$("stats-bar");
+  if(total>0){
+    var mm=getMostMissed();
+    sb.innerHTML="Sesja: <span>"+total+"</span> · Seria: <span>"+streak+"</span>"+(mm?" · Najczęstszy: <span>"+mm+"</span>":"");
+    sb.classList.remove("hidden");
+  }else sb.classList.add("hidden");
+}
+
+function getMostMissed(){
+  if(!errs.length)return null;
+  var c={};errs.forEach(function(e){c[e.v]=(c[e.v]||0)+1;});
+  var mx=0,w="";for(var k in c)if(c[k]>mx){mx=c[k];w=k;}
+  return mx>1?w+" ("+mx+"x)":null;
+}
+
+// ============ GENERATE ============
+function gen(){
+  if(!actT.length)return;
+  var t=pick(TENSES.filter(function(x){return actT.indexOf(x.id)>=0;}));
+  var isImp=t.mood==="Imperativo";
+  cur={v:pick(VERBS),p:pick(isImp?IMP_P:PERSONS),t:t,isImp:isImp};
+  status="idle";correctAns="";
+  showView("drill");
+  renderDrill();
+  var inp=$("ans");inp.value="";inp.disabled=false;inp.className="";
+  setTimeout(function(){inp.focus();},50);
+}
+
+// ============ CHECK ============
+function checkAns(){
+  var inp=$("ans");
+  var val=inp.value.trim();
+  if(!val||status!=="idle")return;
+  var pi=cur.isImp?IMP_P.indexOf(cur.p):PERSONS.indexOf(cur.p);
+  var correct=conj(cur.v,cur.t.id,pi);
+  var norm=val.toLowerCase(),normC=correct.toLowerCase();
+  var ok=norm===normC;
+  if(!ok&&cur.t.id==="imperfecto_sub"){
+    var se=correct.replace(/ra$/,"se").replace(/ras$/,"ses").replace(/ramos$/,"semos").replace(/rais$/,"seis").replace(/ran$/,"sen");
+    if(norm===se.toLowerCase())ok=true;
+  }
+  if(ok){
+    status="correct";score.c++;streak++;
+    inp.className="ok";inp.disabled=true;
+    $("dr-feedback").innerHTML='<div class="fb-ok">¡Correcto! ✓</div>';
+    $("dr-action").innerHTML="";
+    save();updateHeader();
+    setTimeout(gen,900);
+  }else{
+    status="wrong";correctAns=correct;score.w++;streak=0;
+    inp.className="bad";inp.disabled=true;
+    errs.unshift({v:cur.v,pe:cur.p.l,te:cur.t.name+" ("+cur.t.mood+")",y:val,c:correct});
+    if(errs.length>100)errs=errs.slice(0,100);
+    $("dr-feedback").innerHTML='<div class="fb-bad"><div class="fb-bad-label">Incorrecto</div><div class="fb-bad-ans">'+correct+'</div></div>';
+    $("dr-action").innerHTML='<button class="next-btn" onclick="gen()">Siguiente →</button>';
+    save();updateHeader();
+  }
+}
+
+// ============ RENDER DRILL (no input re-creation) ============
+function renderDrill(){
+  if(!cur)return;
+  var mc=MCOL[cur.t.mood];
+  var ex=cur.t.ex.split("|");
+  var vTr=VD[cur.v]?VD[cur.v].tr:"";
+  $("dr-mood").style.cssText="background:"+mc.ac+"22;border:1px solid "+mc.ac+"66;color:"+mc.ac;
+  $("dr-mood").textContent=cur.t.mood;
+  $("dr-tname").style.color=mc.lt;
+  $("dr-tname").textContent=cur.t.name;
+  $("dr-hex").textContent=ex[0];
+  $("dr-hpl").textContent=ex[1];
+  $("dr-card").style.cssText="background:"+mc.bg+";border:1px solid "+mc.ac+"33;border-radius:16px;padding:28px 20px;text-align:center;margin-bottom:24px;";
+  $("dr-verb").textContent=cur.v;
+  $("dr-tr").textContent=vTr;
+  $("dr-pers").style.color=mc.ac;
+  $("dr-pers").textContent=cur.p.l;
+  $("dr-feedback").innerHTML="";
+  $("dr-action").innerHTML='<button class="check-btn" onclick="checkAns()" style="background:'+mc.ac+';color:#000">Comprobar</button>';
+  updateHeader();
+}
+
+// ============ RENDER SETTINGS ============
+function renderSettings(){
+  var h='<div class="panel-title">Wybierz czasy do ćwiczeń:</div>';
+  ["Indicativo","Subjuntivo","Imperativo"].forEach(function(mood){
+    var mTs=TENSES.filter(function(t){return t.mood===mood;});
+    var col=MCOL[mood];
+    var allOn=mTs.every(function(t){return actT.indexOf(t.id)>=0;});
+    h+='<div class="mood-group">';
+    h+='<button class="mood-btn" onclick="togMood(\''+mood+'\')" style="background:'+(allOn?col.ac+'22':'transparent')+';border:1px solid '+col.ac+'55;color:'+col.ac+'">'+mood+(allOn?' ✓':'')+'</button>';
+    h+='<div class="tense-list">';
+    mTs.forEach(function(t){
+      var on=actT.indexOf(t.id)>=0;
+      h+='<div class="tense-item"><button class="tense-btn" onclick="togT(\''+t.id+'\')" style="background:'+(on?col.ac+'33':'#21262d')+';border:1px solid '+(on?col.ac:'#30363d')+';color:'+(on?col.lt:'#484f58')+'">'+t.name+'</button>';
+      h+='<div class="tense-ex">'+t.ex.split("|")[0]+'</div></div>';
+    });
+    h+='</div></div>';
+  });
+  h+='<button class="start-btn" onclick="gen()">Empezar ▸</button>';
+  $("view-settings").innerHTML=h;
+}
+
+// ============ RENDER ERRORS ============
+function renderErrors(){
+  var h='';
+  if(errs.length>0){
+    h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div class="panel-title" style="margin:0;color:#f85149">Twoje błędy (zapisane):</div>';
+    h+='<button class="clear-btn" onclick="clearErrs()">Wyczyść</button></div>';
+    errs.forEach(function(e){
+      h+='<div class="err-item"><div class="err-meta">'+e.v+' · '+e.pe+' · '+e.te+'</div>';
+      h+='<div><span class="err-wrong">'+e.y+'</span> → <span class="err-right">'+e.c+'</span></div></div>';
+    });
+  }else{
+    h+='<div style="text-align:center;color:#8b949e;padding:20px">Brak błędów — tak trzymaj!</div>';
+  }
+  h+='<button class="start-btn" onclick="gen()" style="margin-top:12px;background:#21262d">← Wróć</button>';
+  $("view-errors").innerHTML=h;
+}
+
+function clearErrs(){if(confirm("Wyczyścić?")){errs=[];save();renderErrors();updateHeader();}}
+function togT(id){var i=actT.indexOf(id);if(i>=0)actT.splice(i,1);else actT.push(id);save();renderSettings();}
+function togMood(mood){
+  var ids=TENSES.filter(function(t){return t.mood===mood;}).map(function(t){return t.id;});
+  var allOn=ids.every(function(id){return actT.indexOf(id)>=0;});
+  if(allOn)ids.forEach(function(id){var i=actT.indexOf(id);if(i>=0)actT.splice(i,1);});
+  else ids.forEach(function(id){if(actT.indexOf(id)<0)actT.push(id);});
+  save();renderSettings();
+}
+
+// ============ INIT ============
+load();setupAccents();setupInput();gen();
+</script>
+</body>
+</html>
